@@ -52,7 +52,7 @@ export default function StickyChat() {
               </div>
               <div className="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm border border-gold/10 max-w-[80%]">
                 <p className="text-gray-700">
-                  Hi there! I&apos;m a Sleep Six expert. I can help you find the perfect mattress
+                  Hi there! I&apos;m a Sleep6 expert. I can help you find the perfect mattress
                   or answer any questions about our products. How can I help you today?
                 </p>
               </div>
@@ -63,7 +63,7 @@ export default function StickyChat() {
               <p className="text-xs text-gray-500 text-center mb-2">Quick questions:</p>
               {[
                 'Which mattress is best for back pain?',
-                'Tell me about the 100-night trial',
+                'Tell me about financing options',
                 'How do custom sizes work?',
               ].map((question) => (
                 <button

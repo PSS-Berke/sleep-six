@@ -25,12 +25,12 @@ export async function generateMetadata({ params }: ProductPageProps) {
 
   if (!product) {
     return {
-      title: 'Product Not Found | Sleep Six',
+      title: 'Product Not Found | Sleep6',
     };
   }
 
   return {
-    title: `${product.name} | American-Made ${product.type} Mattress | Sleep Six`,
+    title: `${product.name} | American-Made ${product.type} Mattress | Sleep6`,
     description: product.description,
     keywords: [
       product.name,

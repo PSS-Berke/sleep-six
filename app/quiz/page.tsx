@@ -68,14 +68,14 @@ export default function QuizPage() {
                 Find Your Perfect Mattress
               </h1>
               <p className="text-lg text-gray-600 max-w-md mx-auto">
-                Answer 7 quick questions and we&apos;ll match you with the ideal mattress for your sleep style.
+                Answer 6 quick questions and we&apos;ll match you with the ideal mattress for your sleep style.
               </p>
             </div>
 
             <div className="flex items-center justify-center gap-8 text-sm text-gray-500">
               <div className="flex items-center gap-2">
                 <span className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold font-medium">
-                  7
+                  6
                 </span>
                 <span>Questions</span>
               </div>

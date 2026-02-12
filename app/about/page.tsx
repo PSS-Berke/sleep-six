@@ -3,7 +3,7 @@ import {
   ArrowRight,
   Users,
   Factory,
-  Moon,
+  DollarSign,
   Shield,
   Flag,
   Check,
@@ -12,14 +12,14 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: 'About Us | Sleep Six',
-  description: 'Learn about Sleep Six - 25+ years of bedding expertise, American-made mattresses with 6 essential components, delivered direct to you at a fraction of the cost.',
+  title: 'About Us | Sleep6',
+  description: 'Learn about Sleep6 - 25+ years of bedding expertise, American-made mattresses with 6 essential components, delivered direct to you at a fraction of the cost.',
 };
 
 const stats = [
   { icon: Users, value: '25+', label: 'Years Experience' },
   { icon: Factory, value: '1', label: 'American Factory' },
-  { icon: Moon, value: '100', label: 'Nights Risk-Free' },
+  { icon: Shield, value: '20', label: 'Year Warranty' },
   { icon: Flag, value: '100%', label: 'USA Materials' },
 ];
 
@@ -33,14 +33,14 @@ const benefits = [
 
 const promises = [
   {
-    icon: Moon,
-    title: '100-Night Trial',
-    description: 'Try it risk-free for 100 nights. If you don\'t love it, we\'ll pick it up and give you a full refund.',
+    icon: DollarSign,
+    title: 'Financing Available',
+    description: 'Flexible payment options to fit your budget. Get the sleep you deserve with easy monthly payments.',
   },
   {
     icon: Shield,
-    title: 'Lifetime Warranty',
-    description: 'We stand behind our craft forever. Your mattress is protected for as long as you own it.',
+    title: 'Up to 20 Year Warranty',
+    description: 'We stand behind our craft. Your mattress is protected with our industry-leading warranty.',
   },
   {
     icon: Flag,
@@ -190,7 +190,7 @@ export default function AboutPage() {
               {/* Content */}
               <div>
                 <span className="inline-block bg-gold/15 text-gold-dark font-semibold px-4 py-1 rounded-full text-sm mb-6">
-                  The Sleep Six Philosophy
+                  The Sleep6 Philosophy
                 </span>
 
                 <h2 className="text-3xl md:text-4xl font-serif text-navy mb-6">

@@ -61,12 +61,12 @@ export default function Hero() {
 
             {/* Floating badges */}
             <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-lg shadow-gold/10 p-4 hidden md:block border border-gold/10">
-              <p className="text-sm font-semibold text-navy">100-Night Trial</p>
-              <p className="text-xs text-gray-500">Risk-free comfort guarantee</p>
+              <p className="text-sm font-semibold text-navy">Financing Available</p>
+              <p className="text-xs text-gray-500">Flexible payment options</p>
             </div>
             <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg shadow-gold/10 p-4 hidden md:block border border-gold/10">
-              <p className="text-sm font-semibold text-navy">Lifetime Warranty</p>
-              <p className="text-xs text-gray-500">Built to last forever</p>
+              <p className="text-sm font-semibold text-navy">Up to 20 Year Warranty</p>
+              <p className="text-xs text-gray-500">Built to last</p>
             </div>
           </div>
         </div>

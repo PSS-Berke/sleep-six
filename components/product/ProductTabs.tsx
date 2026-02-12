@@ -188,17 +188,17 @@ export default function ProductTabs({ product }: ProductTabsProps) {
 
             <div className="bg-gold/10 rounded-3xl p-8 border-2 border-gold/20">
               <h4 className="font-semibold text-navy text-center mb-6">
-                100-Night Comfort Guarantee
+                Customer Satisfaction Guarantee
               </h4>
               <p className="text-gray-600 text-center mb-6 max-w-xl mx-auto">
-                Sleep on your new mattress for up to 100 nights. If you&apos;re not completely
+                We stand behind our products. If you&apos;re not completely
                 satisfied, we&apos;ll help you find the right solution.
               </p>
               <ul className="max-w-md mx-auto space-y-3">
                 {[
-                  'Free returns within 100 nights',
                   'Free firmness exchange available',
-                  'Full refund, no questions asked',
+                  'Up to 20 year warranty coverage',
+                  'Dedicated customer support',
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-gray-700">
                     <div className="w-5 h-5 bg-gold/20 rounded-full flex items-center justify-center">

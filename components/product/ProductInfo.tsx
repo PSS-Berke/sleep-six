@@ -113,17 +113,17 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
       {/* Trust Badges - Single Elegant Line */}
       <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 py-6 px-4 bg-gold/5 rounded-2xl text-sm text-gray-600">
-        <span className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2 hover:text-gold-dark transition-colors">
           <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-          100-Night Trial
-        </span>
+          Financing Available
+        </a>
         <span className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 bg-gold rounded-full" />
           Free White Glove Delivery
         </span>
         <span className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-          Lifetime Warranty
+          Up to 20 Year Warranty
         </span>
       </div>
     </div>

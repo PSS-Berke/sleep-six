@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, Flag, Shield, Truck, Clock } from 'lucide-react';
+import { Phone, Mail, Flag, Shield, Truck, DollarSign } from 'lucide-react';
 
 const footerLinks = {
   shop: {
@@ -45,8 +45,8 @@ const footerLinks = {
 const trustBadges = [
   { icon: Flag, label: 'Made in USA' },
   { icon: Truck, label: 'Free Delivery' },
-  { icon: Clock, label: '100-Night Trial' },
-  { icon: Shield, label: 'Lifetime Warranty' },
+  { icon: DollarSign, label: 'Financing Available' },
+  { icon: Shield, label: 'Up to 20 Year Warranty' },
 ];
 
 export default function Footer() {
@@ -153,7 +153,7 @@ export default function Footer() {
       <div className="border-t border-navy-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Sleep Six. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Sleep6. All rights reserved.</p>
             <div className="flex gap-6">
               <Link href="/privacy" className="hover:text-gold transition-colors">
                 Privacy Policy

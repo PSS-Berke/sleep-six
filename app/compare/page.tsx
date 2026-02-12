@@ -4,9 +4,9 @@ import { Star, ArrowRight } from 'lucide-react';
 import { products } from '@/data/products';
 
 export const metadata = {
-  title: 'Compare Mattresses | Sleep Six',
+  title: 'Compare Mattresses | Sleep6',
   description:
-    'Compare all Sleep Six mattresses side by side. See construction, features, and pricing to find your perfect match.',
+    'Compare all Sleep6 mattresses side by side. See construction, features, and pricing to find your perfect match.',
 };
 
 // Key benefits for each product

@@ -1,4 +1,4 @@
-import { Flag, Truck, Moon, Shield } from 'lucide-react';
+import { Flag, Truck, DollarSign, Shield } from 'lucide-react';
 
 const trustItems = [
   {
@@ -12,13 +12,13 @@ const trustItems = [
     description: 'Free returns',
   },
   {
-    icon: Moon,
-    title: '100-Night Trial',
-    description: 'Risk-free comfort guarantee',
+    icon: DollarSign,
+    title: 'Financing Available',
+    description: 'Flexible payment options',
   },
   {
     icon: Shield,
-    title: 'Lifetime Warranty',
+    title: 'Up to 20 Year Warranty',
     description: 'We stand behind our craft',
   },
 ];

@@ -100,27 +100,6 @@ export const quizQuestions: QuizQuestion[] = [
     ],
   },
   {
-    id: 'sweating',
-    question: 'How often do you wake up feeling overheated or sweaty?',
-    options: [
-      {
-        id: 'frequently',
-        label: 'Frequently',
-        weights: { luna: 0, mystic: 0, 'fak-cosmos': 3 },
-      },
-      {
-        id: 'occasionally',
-        label: 'Occasionally',
-        weights: { luna: 1, mystic: 1, 'fak-cosmos': 2 },
-      },
-      {
-        id: 'rarely',
-        label: 'Rarely or never',
-        weights: { luna: 2, mystic: 1, 'fak-cosmos': 0 },
-      },
-    ],
-  },
-  {
     id: 'position',
     question: "What's your primary sleep position?",
     options: [

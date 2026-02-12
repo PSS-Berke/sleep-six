@@ -17,9 +17,9 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Sleep Six | American-Made Mattresses | Six Essential Components",
+  title: "Sleep6 | American-Made Mattresses | Six Essential Components",
   description:
-    "Discover Sleep Six - premium mattresses handcrafted in the USA with 25+ years of expertise. Six essential components for the perfect night's sleep. Free delivery, 100-night trial, lifetime warranty.",
+    "Discover Sleep6 - premium mattresses handcrafted in the USA with 25+ years of expertise. Six essential components for the perfect night's sleep. Free delivery, financing available, up to 20 year warranty.",
   keywords: [
     "American made mattress",
     "USA mattress",

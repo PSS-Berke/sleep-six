@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { products } from '@/data/products';
 
 export const metadata = {
-  title: 'Shop All Mattresses | Sleep Six',
+  title: 'Shop All Mattresses | Sleep6',
   description:
     'Explore our collection of American-made mattresses. From essential comfort to luxury hybrid, find your perfect sleep.',
 };
@@ -47,7 +47,7 @@ export default function ProductsPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <span className="inline-block text-gold-dark font-medium text-sm mb-4">
-            Sleep Six Mattresses
+            Sleep6 Mattresses
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-navy mb-6">
             The <span className="wavy-underline">Collection</span>
@@ -64,7 +64,7 @@ export default function ProductsPage() {
             </span>
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-              100-Night Trial
+              Financing Available
             </span>
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-gold rounded-full" />
@@ -72,7 +72,7 @@ export default function ProductsPage() {
             </span>
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-              Lifetime Warranty
+              Up to 20 Year Warranty
             </span>
           </div>
         </div>

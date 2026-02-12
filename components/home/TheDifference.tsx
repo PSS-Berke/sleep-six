@@ -15,7 +15,7 @@ export default function TheDifference() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-serif text-navy mb-4">
-            The Sleep Six Difference
+            The Sleep6 Difference
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             We eliminated the middleman and went back to the fundamentals.
@@ -24,14 +24,14 @@ export default function TheDifference() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
-          {/* Sleep Six */}
+          {/* Sleep6 */}
           <div className="bg-white border-2 border-gold/30 rounded-3xl p-8 shadow-lg shadow-gold/5">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center">
                 <span className="text-gold-dark font-bold text-xl">6</span>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-navy">Sleep Six</h3>
+                <h3 className="text-xl font-semibold text-navy">Sleep6</h3>
                 <p className="text-gray-500 text-sm">The better way</p>
               </div>
             </div>
