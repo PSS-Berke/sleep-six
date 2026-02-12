@@ -1,17 +1,39 @@
 'use client';
 
 import { useState } from 'react';
-import { Star, Info, ArrowRight } from 'lucide-react';
+import { Star, Info, ArrowRight, Check } from 'lucide-react';
 import type { Product, Size } from '@/data/products';
+import { useCart } from '@/contexts/CartContext';
 
 interface ProductInfoProps {
   product: Product;
 }
 
 export default function ProductInfo({ product }: ProductInfoProps) {
+  const { addItem, openCartDrawer } = useCart();
   const [selectedSize, setSelectedSize] = useState<Size>(
     product.sizes.find((s) => s.name === 'Queen') || product.sizes[0]
   );
+  const [selectedFirmness, setSelectedFirmness] = useState(
+    product.selectedFirmness || 'Medium'
+  );
+
+  const handleAddToCart = () => {
+    addItem({
+      productId: product.id,
+      productSlug: product.slug,
+      productName: product.name,
+      productType: product.type,
+      size: selectedSize.name,
+      sizeDimensions: selectedSize.dimensions,
+      firmness: selectedFirmness,
+      price: selectedSize.price,
+      originalPrice: product.originalPrice,
+      quantity: 1,
+      image: product.images[0] || '',
+    });
+    openCartDrawer();
+  };
 
   return (
     <div className="space-y-8">
@@ -103,10 +125,44 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         </div>
       </div>
 
+      {/* Firmness Selector */}
+      <div className="space-y-4">
+        <label className="text-sm text-gold-dark font-medium">
+          Select Firmness
+        </label>
+        <div className="grid grid-cols-3 gap-3">
+          {product.firmness.map((option) => (
+            <button
+              key={option.level}
+              onClick={() => setSelectedFirmness(option.level)}
+              className={`
+                relative p-4 rounded-2xl border-2 text-left transition-all duration-500
+                ${selectedFirmness === option.level
+                  ? 'border-gold bg-white shadow-lg shadow-gold/10'
+                  : 'border-gold/10 hover:border-gold/30 bg-white/60'
+                }
+              `}
+            >
+              <div className="flex items-center justify-between mb-1">
+                <p className="font-semibold text-navy">{option.level}</p>
+                {selectedFirmness === option.level && (
+                  <Check className="w-4 h-4 text-gold" />
+                )}
+              </div>
+              <p className="text-xs text-gray-400 line-clamp-2">{option.description}</p>
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Add to Cart - Premium Navy */}
-      <button className="w-full bg-navy hover:bg-navy-dark text-white font-medium py-5 px-8 rounded-full text-lg tracking-wide transition-all duration-500 hover:shadow-2xl hover:shadow-navy/20 group">
+      <button
+        onClick={handleAddToCart}
+        disabled={!selectedSize.inStock}
+        className="w-full bg-navy hover:bg-navy-dark text-white font-medium py-5 px-8 rounded-full text-lg tracking-wide transition-all duration-500 hover:shadow-2xl hover:shadow-navy/20 group disabled:opacity-50 disabled:cursor-not-allowed"
+      >
         <span className="flex items-center justify-center gap-3">
-          Add to Cart
+          {selectedSize.inStock ? 'Add to Cart' : 'Out of Stock'}
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500" />
         </span>
       </button>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, Phone, Flag } from 'lucide-react';
+import CartIcon from '@/components/cart/CartIcon';
 
 const navigation = {
   mattresses: {
@@ -95,24 +96,28 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* CTA button */}
-          <div className="hidden lg:block">
+          {/* CTA button and Cart */}
+          <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/products"
               className="bg-gold hover:bg-gold-dark text-white font-semibold px-6 py-2.5 rounded-full transition-colors"
             >
               Shop Now
             </Link>
+            <CartIcon />
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            className="lg:hidden p-2 text-gray-700"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile cart and menu */}
+          <div className="lg:hidden flex items-center gap-2">
+            <CartIcon />
+            <button
+              className="p-2 text-gray-700"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </nav>
 

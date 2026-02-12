@@ -3,6 +3,8 @@ import { Nunito, Lora } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { CartProvider } from "@/contexts/CartContext";
+import CartDrawer from "@/components/cart/CartDrawer";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -39,9 +41,12 @@ export default function RootLayout({
       <body
         className={`${nunito.variable} ${lora.variable} antialiased`}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );
