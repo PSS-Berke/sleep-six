@@ -13,7 +13,7 @@ import {
   Volume2,
   ChevronDown,
 } from 'lucide-react';
-import { products } from '@/data/products';
+import { homeLineProducts } from '@/data/products';
 
 // Category definitions
 const sleepPositions = [
@@ -23,7 +23,7 @@ const sleepPositions = [
     icon: Moon,
     description: 'Cozy cushioning for your shoulders & hips',
     tip: 'You curl up on your side? We get it. You\'ll love something with extra softness where you need it most.',
-    recommended: ['cosmos-hybrid', 'fak-cosmos'],
+    recommended: ['indulgent', 'decadent'],
   },
   {
     slug: 'back-sleeper',
@@ -31,7 +31,7 @@ const sleepPositions = [
     icon: Activity,
     description: 'Gentle support that hugs your spine',
     tip: 'Sleeping on your back is wonderful for alignment. We\'ll find you something that keeps everything happy.',
-    recommended: ['cosmos-hybrid', 'fak-cosmos'],
+    recommended: ['decadent', 'insatiable'],
   },
   {
     slug: 'stomach-sleeper',
@@ -39,7 +39,7 @@ const sleepPositions = [
     icon: Bed,
     description: 'A little firmer to keep you comfy',
     tip: 'Stomach sleepers do best with a bit more support. No sinking, just floating.',
-    recommended: ['luna', 'mystic'],
+    recommended: ['essential', 'elevated'],
   },
   {
     slug: 'combination',
@@ -47,7 +47,7 @@ const sleepPositions = [
     icon: RefreshCw,
     description: 'Perfect for restless dreamers',
     tip: 'You like to switch it up? Same. We\'ll find something that moves with you.',
-    recommended: ['cosmos-hybrid', 'fak-cosmos'],
+    recommended: ['decadent', 'insatiable'],
   },
 ];
 
@@ -58,7 +58,7 @@ const sleepConcerns = [
     icon: Thermometer,
     description: 'Stay cool and breezy all night',
     tip: 'Waking up sweaty? No fun. Our cooling materials help you stay comfortable.',
-    recommended: ['fak-cosmos', 'cosmos-hybrid'],
+    recommended: ['decadent', 'insatiable'],
   },
   {
     slug: 'couples',
@@ -66,7 +66,7 @@ const sleepConcerns = [
     icon: Users,
     description: 'Sleep peacefully together',
     tip: 'When your partner tosses and turns, you won\'t feel a thing. Promise.',
-    recommended: ['mystic', 'cosmos-hybrid'],
+    recommended: ['indulgent', 'decadent'],
   },
   {
     slug: 'back-pain',
@@ -74,7 +74,7 @@ const sleepConcerns = [
     icon: Activity,
     description: 'Wake up without the aches',
     tip: 'We hear this a lot. The right support can make mornings feel so much better.',
-    recommended: ['cosmos-hybrid'],
+    recommended: ['decadent', 'insatiable'],
   },
   {
     slug: 'light-sleeper',
@@ -82,12 +82,12 @@ const sleepConcerns = [
     icon: Volume2,
     description: 'Undisturbed, peaceful rest',
     tip: 'Light sleepers deserve deep sleep too. Motion isolation is your friend.',
-    recommended: ['mystic', 'cosmos-hybrid'],
+    recommended: ['indulgent', 'decadent'],
   },
 ];
 
 // Helper to get product by slug
-const getProductBySlug = (slug: string) => products.find((p) => p.slug === slug);
+const getProductBySlug = (slug: string) => homeLineProducts.find((p) => p.slug === slug);
 
 export default function ShopByFeelPage() {
   const [activePosition, setActivePosition] = useState<string | null>(null);
@@ -234,7 +234,7 @@ export default function ShopByFeelPage() {
           <p className="text-gray-500 mb-6">Not sure yet? That&apos;s okay too.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
-              href="/products"
+              href="/home-line"
               className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white rounded-full font-medium hover:bg-navy-light transition-colors"
             >
               Browse all mattresses

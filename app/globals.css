@@ -2,17 +2,32 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1a202c;
+  --foreground: #203552;
 
-  /* Brand Colors */
-  --navy: #2B3A67;
-  --navy-light: #3D4F7C;
-  --navy-dark: #1E2A4A;
-  --gold: #E8943D;
-  --gold-light: #F5A623;
+  /* Brand Primary - Sleep6 Brand Guide */
+  --navy: #203552;
+  --navy-light: #2A63A9;
+  --navy-dark: #1a2a42;
+
+  /* Brand Accent */
+  --gold: #F3A51D;
+  --gold-light: #F7B94D;
+  --orange: #F26821;
   --gold-dark: #D4792C;
-  --sky: #3182ce;
-  --sky-light: #63b3ed;
+
+  /* Brand Blues */
+  --sky: #3776BB;
+  --sky-light: #587FC0;
+  --cyan: #5CBBD4;
+  --teal: #3E9EB7;
+
+  /* Brand Reds */
+  --coral: #D0403E;
+  --maroon: #92291D;
+
+  /* Brand Neutrals */
+  --soft-gray: #DAE7EB;
+  --mid-gray: #B1B5C1;
 
   /* Neutrals */
   --gray-50: #f7fafc;
@@ -28,28 +43,47 @@
 
   /* Semantic */
   --success: #38a169;
-  --error: #e53e3e;
+  --error: #D0403E;
 
   /* Luxury transitions */
   --transition-luxury: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-luxury: 0 25px 50px -12px rgba(214, 158, 46, 0.05);
+  --shadow-luxury: 0 25px 50px -12px rgba(243, 165, 29, 0.05);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-nunito);
-  --font-serif: var(--font-lora);
+  --font-sans: var(--font-lato);
+  --font-serif: var(--font-josefin);
+  --font-heading: var(--font-josefin);
+  --font-display: var(--font-playfair);
 
-  /* Custom colors */
+  /* Brand Primary */
   --color-navy: var(--navy);
   --color-navy-light: var(--navy-light);
   --color-navy-dark: var(--navy-dark);
+
+  /* Brand Accent */
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
+  --color-orange: var(--orange);
   --color-gold-dark: var(--gold-dark);
+
+  /* Brand Blues */
   --color-sky: var(--sky);
   --color-sky-light: var(--sky-light);
+  --color-cyan: var(--cyan);
+  --color-teal: var(--teal);
+
+  /* Brand Reds */
+  --color-coral: var(--coral);
+  --color-maroon: var(--maroon);
+
+  /* Brand Neutrals */
+  --color-soft-gray: var(--soft-gray);
+  --color-mid-gray: var(--mid-gray);
+
+  /* Semantic */
   --color-success: var(--success);
   --color-error: var(--error);
 
@@ -85,6 +119,23 @@ body {
 /* Soft linen texture overlay */
 .linen-texture {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23d4c5b0' fill-opacity='0.15' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* Quilted wave pattern - full page overlay */
+.quilted-wave-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: url('/patterns/quilted-wave.jpg');
+  background-size: 500px;
+  background-repeat: repeat;
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Higher opacity on quiz page */
+body:has([data-page="quiz"]) .quilted-wave-overlay {
+  opacity: 0.08;
 }
 
 /* Handwritten style underline */

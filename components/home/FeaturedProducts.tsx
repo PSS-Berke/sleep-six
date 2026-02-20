@@ -57,13 +57,13 @@ export default function FeaturedProducts() {
         {/* Editorial Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-gold-dark font-medium text-sm mb-4">
-            The Collection
+            abt Exclusive Collection
           </span>
           <h2 className="text-4xl md:text-5xl font-serif text-navy mb-6">
             Handcrafted for <span className="wavy-underline">Perfect Sleep</span>
           </h2>
           <p className="text-lg text-gray-500 max-w-xl mx-auto leading-relaxed">
-            Each mattress born from 25 years of expertise. Made in America.
+            Each mattress born from 25 years of expertise. Made in America, available exclusively through abt.
           </p>
         </div>
 
@@ -182,7 +182,7 @@ export default function FeaturedProducts() {
         <div className="text-center">
           <Link href="/products" className="inline-flex items-center gap-3 group">
             <span className="text-navy font-medium group-hover:text-gold-dark transition-colors duration-300">
-              Explore the Full Collection
+              Explore the abt Exclusive Collection
             </span>
             <span className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-gold/30 group-hover:border-gold group-hover:bg-gold transition-all duration-300">
               <ArrowRight className="w-4 h-4 text-gold group-hover:text-white transition-colors duration-300" />

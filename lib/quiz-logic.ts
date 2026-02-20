@@ -1,3 +1,7 @@
+import type { LucideIcon } from 'lucide-react';
+import { Moon, Activity, Bed, RefreshCw, Thermometer, User, Users, Home } from 'lucide-react';
+import { getProductBySlug } from '@/data/products';
+
 export type RecommendedProduct = 'luna' | 'mystic' | 'fak-cosmos';
 
 export interface ProductWeights {
@@ -6,10 +10,19 @@ export interface ProductWeights {
   'fak-cosmos': number;
 }
 
+export interface FirmnessWeight {
+  soft: number;
+  medium: number;
+  firm: number;
+}
+
 export interface QuizOption {
   id: string;
   label: string;
+  sublabel?: string;
+  icon?: LucideIcon;
   weights: ProductWeights;
+  firmnessWeight?: FirmnessWeight;
 }
 
 export interface QuizQuestion {
@@ -28,147 +41,193 @@ export interface ProductScores {
   'fak-cosmos': number;
 }
 
+export interface FirmnessScores {
+  soft: number;
+  medium: number;
+  firm: number;
+}
+
 export interface QuizResult {
   product: RecommendedProduct;
   scores: ProductScores;
   headline: string;
   reason: string;
+  recommendedFirmness: 'Soft' | 'Medium' | 'Firm';
+  firmnessReason: string;
+  bestFor: string[];
 }
 
 export const quizQuestions: QuizQuestion[] = [
   {
-    id: 'pain',
-    question: 'Do you experience back pain, joint pain, or muscle soreness?',
+    id: 'sleep-position',
+    question: 'What position do you mostly sleep in?',
     options: [
       {
-        id: 'frequently',
-        label: 'Frequently (daily or most days)',
-        weights: { luna: 0, mystic: 4, 'fak-cosmos': 1 },
+        id: 'side',
+        label: 'Side',
+        icon: Moon,
+        weights: { luna: 1, mystic: 2, 'fak-cosmos': 2 },
+        firmnessWeight: { soft: 3, medium: 2, firm: 0 },
       },
       {
-        id: 'sometimes',
-        label: 'Sometimes (a few times a week)',
-        weights: { luna: 1, mystic: 2, 'fak-cosmos': 1 },
+        id: 'back',
+        label: 'Back',
+        icon: Activity,
+        weights: { luna: 1, mystic: 1, 'fak-cosmos': 2 },
+        firmnessWeight: { soft: 1, medium: 3, firm: 1 },
       },
       {
-        id: 'rarely',
-        label: 'Rarely or never',
-        weights: { luna: 2, mystic: 0, 'fak-cosmos': 1 },
+        id: 'stomach',
+        label: 'Stomach',
+        icon: Bed,
+        weights: { luna: 2, mystic: 1, 'fak-cosmos': 1 },
+        firmnessWeight: { soft: 0, medium: 1, firm: 3 },
+      },
+      {
+        id: 'combination',
+        label: 'Combination',
+        icon: RefreshCw,
+        weights: { luna: 1, mystic: 1, 'fak-cosmos': 2 },
+        firmnessWeight: { soft: 1, medium: 3, firm: 1 },
       },
     ],
   },
   {
-    id: 'recovery',
-    question: 'Are you currently recovering from an injury, surgery, or dealing with a chronic condition?',
+    id: 'discomfort',
+    question: 'Do you wake up with discomfort?',
     options: [
       {
-        id: 'recovering',
-        label: "Yes, I'm actively recovering",
-        weights: { luna: 0, mystic: 4, 'fak-cosmos': 0 },
+        id: 'lower-back',
+        label: 'Lower back pain',
+        weights: { luna: 0, mystic: 3, 'fak-cosmos': 2 },
+        firmnessWeight: { soft: 0, medium: 2, firm: 2 },
       },
       {
-        id: 'ongoing',
-        label: 'I have an ongoing condition I manage',
-        weights: { luna: 0, mystic: 3, 'fak-cosmos': 0 },
+        id: 'shoulder-hip',
+        label: 'Shoulder/hip pressure',
+        weights: { luna: 0, mystic: 4, 'fak-cosmos': 2 },
+        firmnessWeight: { soft: 3, medium: 1, firm: 0 },
       },
       {
-        id: 'healthy',
-        label: "No, I'm in good health",
+        id: 'neck',
+        label: 'Neck pain',
+        weights: { luna: 1, mystic: 2, 'fak-cosmos': 1 },
+        firmnessWeight: { soft: 1, medium: 2, firm: 1 },
+      },
+      {
+        id: 'none',
+        label: 'I sleep comfortably',
         weights: { luna: 2, mystic: 0, 'fak-cosmos': 1 },
+        firmnessWeight: { soft: 1, medium: 2, firm: 1 },
+      },
+    ],
+  },
+  {
+    id: 'firmness-pref',
+    question: 'How firm do you like your mattress?',
+    options: [
+      {
+        id: 'plush',
+        label: 'Plush',
+        sublabel: 'Sink-in softness',
+        weights: { luna: 0, mystic: 2, 'fak-cosmos': 2 },
+        firmnessWeight: { soft: 4, medium: 0, firm: 0 },
+      },
+      {
+        id: 'medium',
+        label: 'Medium',
+        sublabel: 'Balanced feel',
+        weights: { luna: 1, mystic: 1, 'fak-cosmos': 2 },
+        firmnessWeight: { soft: 0, medium: 4, firm: 0 },
+      },
+      {
+        id: 'medium-firm',
+        label: 'Medium-Firm',
+        sublabel: 'Supportive with cushion',
+        weights: { luna: 2, mystic: 1, 'fak-cosmos': 1 },
+        firmnessWeight: { soft: 0, medium: 2, firm: 2 },
+      },
+      {
+        id: 'firm',
+        label: 'Firm',
+        sublabel: 'Minimal sink',
+        weights: { luna: 3, mystic: 0, 'fak-cosmos': 0 },
+        firmnessWeight: { soft: 0, medium: 0, firm: 4 },
       },
     ],
   },
   {
     id: 'temperature',
-    question: 'How would you describe your body temperature while sleeping?',
+    question: 'Do you tend to sleep hot?',
     options: [
       {
-        id: 'hot',
-        label: 'I sleep hot (often kick off blankets)',
+        id: 'overheat',
+        label: 'Yes, I overheat',
+        icon: Thermometer,
         weights: { luna: 0, mystic: 0, 'fak-cosmos': 4 },
       },
       {
-        id: 'neutral',
-        label: "I'm neutral / comfortable",
-        weights: { luna: 2, mystic: 1, 'fak-cosmos': 1 },
-      },
-      {
-        id: 'cold',
-        label: 'I sleep cold (need extra blankets)',
-        weights: { luna: 2, mystic: 1, 'fak-cosmos': 0 },
-      },
-    ],
-  },
-  {
-    id: 'position',
-    question: "What's your primary sleep position?",
-    options: [
-      {
-        id: 'side',
-        label: 'Side sleeper',
-        weights: { luna: 1, mystic: 2, 'fak-cosmos': 2 },
-      },
-      {
-        id: 'back',
-        label: 'Back sleeper',
+        id: 'sometimes',
+        label: 'Sometimes',
         weights: { luna: 1, mystic: 1, 'fak-cosmos': 2 },
-      },
-      {
-        id: 'stomach',
-        label: 'Stomach sleeper',
-        weights: { luna: 2, mystic: 1, 'fak-cosmos': 1 },
-      },
-      {
-        id: 'combination',
-        label: 'I move around / combination',
-        weights: { luna: 1, mystic: 1, 'fak-cosmos': 2 },
-      },
-    ],
-  },
-  {
-    id: 'partner',
-    question: 'Do you share your bed with a partner?',
-    options: [
-      {
-        id: 'yes-moves',
-        label: 'Yes, and they move a lot',
-        weights: { luna: 0, mystic: 3, 'fak-cosmos': 1 },
-      },
-      {
-        id: 'yes-still',
-        label: 'Yes, but they sleep still',
-        weights: { luna: 1, mystic: 1, 'fak-cosmos': 1 },
       },
       {
         id: 'no',
-        label: 'No, I sleep alone',
-        weights: { luna: 2, mystic: 1, 'fak-cosmos': 1 },
+        label: 'No',
+        weights: { luna: 2, mystic: 2, 'fak-cosmos': 0 },
       },
     ],
   },
   {
-    id: 'priority',
-    question: 'What matters MOST to you in a mattress?',
+    id: 'sleepers',
+    question: "Who's sleeping on this mattress?",
     options: [
       {
-        id: 'cool',
-        label: 'Staying cool throughout the night',
-        weights: { luna: 0, mystic: 0, 'fak-cosmos': 4 },
+        id: 'just-me',
+        label: 'Just me',
+        icon: User,
+        weights: { luna: 2, mystic: 1, 'fak-cosmos': 1 },
       },
       {
-        id: 'pain-relief',
-        label: 'Relief from aches and pains',
-        weights: { luna: 0, mystic: 4, 'fak-cosmos': 0 },
+        id: 'partner',
+        label: 'Me + partner',
+        icon: Users,
+        weights: { luna: 0, mystic: 3, 'fak-cosmos': 2 },
       },
       {
-        id: 'value',
-        label: 'Great value for the price',
-        weights: { luna: 4, mystic: 1, 'fak-cosmos': 0 },
+        id: 'family',
+        label: 'Family/pets join',
+        icon: Home,
+        weights: { luna: 0, mystic: 2, 'fak-cosmos': 2 },
+      },
+    ],
+  },
+  {
+    id: 'feel',
+    question: 'Which feel sounds best to you?',
+    options: [
+      {
+        id: 'memory-foam',
+        label: 'Deep contouring',
+        sublabel: 'Memory foam feel',
+        weights: { luna: 0, mystic: 4, 'fak-cosmos': 1 },
       },
       {
-        id: 'comfort',
-        label: 'Overall comfort and quality',
-        weights: { luna: 1, mystic: 1, 'fak-cosmos': 2 },
+        id: 'hybrid',
+        label: 'Balanced support + bounce',
+        sublabel: 'Hybrid feel',
+        weights: { luna: 1, mystic: 1, 'fak-cosmos': 3 },
+      },
+      {
+        id: 'responsive',
+        label: 'Responsive + supportive',
+        sublabel: 'Traditional foam feel',
+        weights: { luna: 3, mystic: 0, 'fak-cosmos': 1 },
+      },
+      {
+        id: 'not-sure',
+        label: 'Not sure',
+        weights: { luna: 1, mystic: 1, 'fak-cosmos': 1 },
       },
     ],
   },
@@ -181,7 +240,13 @@ export function calculateResult(answers: QuizAnswers): QuizResult {
     'fak-cosmos': 0,
   };
 
-  // Calculate weighted scores for each product
+  const firmnessScores: FirmnessScores = {
+    soft: 0,
+    medium: 0,
+    firm: 0,
+  };
+
+  // Calculate weighted scores for each product and firmness
   for (const question of quizQuestions) {
     const answerId = answers[question.id];
     if (!answerId) continue;
@@ -189,9 +254,17 @@ export function calculateResult(answers: QuizAnswers): QuizResult {
     const selectedOption = question.options.find((opt) => opt.id === answerId);
     if (!selectedOption) continue;
 
+    // Product scores
     scores.luna += selectedOption.weights.luna;
     scores.mystic += selectedOption.weights.mystic;
     scores['fak-cosmos'] += selectedOption.weights['fak-cosmos'];
+
+    // Firmness scores (if present)
+    if (selectedOption.firmnessWeight) {
+      firmnessScores.soft += selectedOption.firmnessWeight.soft;
+      firmnessScores.medium += selectedOption.firmnessWeight.medium;
+      firmnessScores.firm += selectedOption.firmnessWeight.firm;
+    }
   }
 
   // Find the product with the highest score
@@ -208,12 +281,36 @@ export function calculateResult(answers: QuizAnswers): QuizResult {
     recommendedProduct = 'fak-cosmos';
   }
 
+  // Determine recommended firmness
+  let recommendedFirmness: 'Soft' | 'Medium' | 'Firm' = 'Medium';
+  if (firmnessScores.soft > firmnessScores.medium && firmnessScores.soft > firmnessScores.firm) {
+    recommendedFirmness = 'Soft';
+  } else if (firmnessScores.firm > firmnessScores.medium && firmnessScores.firm > firmnessScores.soft) {
+    recommendedFirmness = 'Firm';
+  }
+
+  // Get product data for bestFor
+  const product = getProductBySlug(recommendedProduct);
+  const bestFor = product?.bestFor || [];
+
   // Return result with personalized messaging
   return {
     product: recommendedProduct,
     scores,
+    recommendedFirmness,
+    firmnessReason: getFirmnessReason(recommendedFirmness),
+    bestFor,
     ...getResultMessaging(recommendedProduct, scores),
   };
+}
+
+function getFirmnessReason(firmness: 'Soft' | 'Medium' | 'Firm'): string {
+  const reasons: Record<string, string> = {
+    Soft: 'Based on your sleep position and comfort preferences, a softer feel will provide the pressure relief you need.',
+    Medium: 'A medium firmness offers the perfect balance of support and comfort for your sleep style.',
+    Firm: 'Based on your preferences, a firmer mattress will provide the support you need for quality sleep.',
+  };
+  return reasons[firmness];
 }
 
 function getResultMessaging(

@@ -56,7 +56,7 @@ export default function QuizPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div data-page="quiz" className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-2xl mx-auto px-4 py-12 md:py-20">
         {state === 'intro' && (
           <div className="text-center space-y-8">

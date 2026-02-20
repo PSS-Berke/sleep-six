@@ -1,21 +1,27 @@
 import type { Metadata } from "next";
-import { Nunito, Lora } from "next/font/google";
+import { Lato, Josefin_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { CartProvider } from "@/contexts/CartContext";
 import CartDrawer from "@/components/cart/CartDrawer";
 
-const nunito = Nunito({
-  variable: "--font-nunito",
+const lato = Lato({
+  variable: "--font-lato",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "700", "900"],
 });
 
-const lora = Lora({
-  variable: "--font-lora",
+const josefinSans = Josefin_Sans({
+  variable: "--font-josefin",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "600", "700"],
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -38,9 +44,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${nunito.variable} ${lora.variable} antialiased`}
-      >
+      <body className={`${lato.variable} ${josefinSans.variable} ${playfairDisplay.variable} antialiased`}>
+        {/* Quilted wave pattern overlay */}
+        <div className="quilted-wave-overlay" aria-hidden="true" />
         <CartProvider>
           <Header />
           <main>{children}</main>

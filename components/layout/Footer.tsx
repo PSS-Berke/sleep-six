@@ -6,7 +6,8 @@ const footerLinks = {
   shop: {
     title: 'Shop',
     links: [
-      { name: 'All Mattresses', href: '/products' },
+      { name: 'abt Exclusive', href: '/products' },
+      { name: 'Sleep6 Home Line', href: '/home-line' },
       { name: 'Compare Mattresses', href: '/compare' },
     ],
   },
@@ -51,7 +52,7 @@ const trustBadges = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-navy text-white relative z-10">
       {/* Trust badges */}
       <div className="border-b border-navy-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

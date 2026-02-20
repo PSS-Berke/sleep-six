@@ -4,13 +4,16 @@ import { ArrowRight } from 'lucide-react';
 import { products } from '@/data/products';
 
 export const metadata = {
-  title: 'Shop All Mattresses | Sleep6',
+  title: 'abt Exclusive Mattresses | Sleep6',
   description:
-    'Explore our collection of American-made mattresses. From essential comfort to luxury hybrid, find your perfect sleep.',
+    'Sleep6 mattresses available exclusively through abt. American-made comfort — from essential foam to luxury hybrid.',
 };
 
+// abt Exclusive products only
+const abtProducts = products.filter((p) => p.brand === 'abt');
+
 // Add key benefits to products
-const productsWithBenefits = products.map((p) => ({
+const productsWithBenefits = abtProducts.map((p) => ({
   ...p,
   keyBenefit:
     p.slug === 'cosmos-hybrid'
@@ -47,13 +50,13 @@ export default function ProductsPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <span className="inline-block text-gold-dark font-medium text-sm mb-4">
-            Sleep6 Mattresses
+            abt Exclusive
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-navy mb-6">
-            The <span className="wavy-underline">Collection</span>
+            abt <span className="wavy-underline">Exclusive</span> Collection
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Four mattresses. 25 years of expertise. Handcrafted in America.
+            Handcrafted in America. Available exclusively through our abt partnership.
           </p>
 
           {/* Trust badges */}

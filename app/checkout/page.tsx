@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, ArrowRight, ShoppingBag, Lock, Info } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ShoppingBag, Lock } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 
 export default function CheckoutPage() {
@@ -25,14 +25,40 @@ export default function CheckoutPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Demo: just show an alert
-    alert('Order placed! (Demo - no actual order processing)');
-  };
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  // Monthly payment estimate (12 months, 0% APR for demo)
-  const monthlyPayment = Math.round(subtotal / 12);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      const items = state.items.map((item) => ({
+        name: `${item.productName} - ${item.size} - ${item.firmness}`,
+        price: item.price,
+        quantity: item.quantity,
+        image: item.image,
+      }));
+
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items, email: formData.email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.url) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+
+      window.location.href = data.url;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+      setLoading(false);
+    }
+  };
 
   if (state.items.length === 0) {
     return (
@@ -247,46 +273,32 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              {/* Payment - Affirm Placeholder */}
+              {/* Payment */}
               <div className="bg-white rounded-3xl border-2 border-gold/20 p-6 md:p-8">
                 <h2 className="text-xl font-serif text-navy mb-6">Payment</h2>
-
-                {/* Affirm branding */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-24 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                    <span className="text-sm font-bold text-gray-600">affirm</span>
-                  </div>
-                  <span className="text-gold-dark font-medium">0% APR Financing Available</span>
-                </div>
-
-                {/* Monthly payment preview */}
-                <div className="bg-gold/5 rounded-2xl p-6 mb-6">
-                  <p className="text-gray-600 mb-1">Pay as low as</p>
-                  <p className="text-3xl text-navy font-serif">${monthlyPayment}/mo</p>
-                  <p className="text-sm text-gray-400 mt-1">with 12-month financing at 0% APR</p>
-                </div>
-
-                {/* Demo notice */}
-                <div className="bg-navy/5 rounded-xl p-4 flex items-start gap-3">
-                  <Info className="w-5 h-5 text-navy flex-shrink-0 mt-0.5" />
+                <div className="bg-gold/5 rounded-2xl p-6 flex items-start gap-4">
+                  <Lock className="w-5 h-5 text-gold-dark flex-shrink-0 mt-0.5" />
                   <div className="text-sm text-gray-600">
-                    <p className="font-medium text-navy mb-1">Demo Mode</p>
+                    <p className="font-medium text-navy mb-1">Secure Payment via Stripe</p>
                     <p>
-                      Payment integration coming soon. This is a placeholder for demonstration purposes.
-                      Click &quot;Place Order&quot; to simulate a completed order.
+                      You&apos;ll enter your card details on Stripe&apos;s encrypted payment page. We never store your card information.
                     </p>
                   </div>
                 </div>
+                {error && (
+                  <p className="mt-4 text-sm text-red-600 text-center">{error}</p>
+                )}
               </div>
 
               {/* Submit button - Mobile */}
               <div className="lg:hidden">
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-navy hover:bg-navy-light text-white font-medium py-4 px-6 rounded-full transition-all group"
+                  disabled={loading}
+                  className="w-full flex items-center justify-center gap-2 bg-navy hover:bg-navy-light disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium py-4 px-6 rounded-full transition-all group"
                 >
-                  Place Order
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  {loading ? 'Redirecting to Stripe...' : 'Proceed to Secure Payment'}
+                  {!loading && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
                 </button>
               </div>
             </div>
@@ -367,10 +379,11 @@ export default function CheckoutPage() {
                 <div className="hidden lg:block">
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 bg-navy hover:bg-navy-light text-white font-medium py-4 px-6 rounded-full transition-all group"
+                    disabled={loading}
+                    className="w-full flex items-center justify-center gap-2 bg-navy hover:bg-navy-light disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium py-4 px-6 rounded-full transition-all group"
                   >
-                    Place Order
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    {loading ? 'Redirecting to Stripe...' : 'Proceed to Secure Payment'}
+                    {!loading && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
                   </button>
                 </div>
 
