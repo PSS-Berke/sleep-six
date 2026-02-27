@@ -1,8 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import https from 'https';
+
+export const runtime = 'nodejs';
+
+const stripeAgent = new https.Agent({ keepAlive: false });
 
 export async function POST(req: NextRequest) {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return NextResponse.json({ error: 'Stripe key not configured' }, { status: 500 });
+  }
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    httpAgent: stripeAgent,
+  });
   try {
     const { items, email } = await req.json();
 
