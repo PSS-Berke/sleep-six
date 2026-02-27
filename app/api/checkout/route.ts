@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
           unit_amount: Math.round(item.price * 100),
           product_data: {
             name: item.name,
-            ...(item.image ? { images: [item.image] } : {}),
+            ...(item.image && origin.startsWith('https') ? { images: [new URL(item.image, origin).href] } : {}),
           },
         },
         quantity: item.quantity,
