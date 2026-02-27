@@ -4,18 +4,17 @@ import { Star, ArrowRight } from 'lucide-react';
 import { homeLineProducts } from '@/data/products';
 
 export const metadata = {
-  title: 'Compare Home Line | Sleep6',
+  title: 'Compare | Sleep6',
   description:
-    'Compare all Sleep6 Home Line mattresses side by side. Five tiers of online-exclusive comfort — find your perfect level.',
+    'Compare all Sleep6 mattresses side by side. Five tiers of online-exclusive comfort — find your perfect level.',
 };
 
 // Key benefits for each product
 const keyBenefits: Record<string, string> = {
-  essential: 'Dependable Comfort',
-  elevated: 'Noticeable Upgrade',
-  indulgent: 'Rich, Plush Experience',
-  decadent: 'Near-Luxury Performance',
-  insatiable: 'Absolute Premium',
+  nod: 'Dependable Comfort',
+  doze: 'Noticeable Upgrade',
+  slumber: 'Rich, Plush Experience',
+  dream: 'Near-Luxury Performance',
 };
 
 // Sort home line products by price (ascending), excluding crib
@@ -43,7 +42,7 @@ export default function ComparePage() {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <span className="inline-block text-gold-dark font-medium text-sm mb-4">
-            Home Line · Online Exclusive
+            Sleep6 · Online Exclusive
           </span>
           <h1 className="text-3xl md:text-4xl font-serif text-navy mb-4">
             Compare Our <span className="wavy-underline">Collection</span>

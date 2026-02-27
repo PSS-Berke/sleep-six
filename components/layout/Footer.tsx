@@ -1,79 +1,28 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, Flag, Shield, Truck, DollarSign } from 'lucide-react';
+import { Phone, Mail, Facebook, Twitter, Instagram } from 'lucide-react';
 
-const footerLinks = {
-  shop: {
-    title: 'Shop',
-    links: [
-      { name: 'abt Exclusive', href: '/products' },
-      { name: 'Sleep6 Home Line', href: '/home-line' },
-      { name: 'Compare Mattresses', href: '/compare' },
-    ],
-  },
-  company: {
-    title: 'Company',
-    links: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Our Factory', href: '/factory-tour' },
-      { name: 'Meet the Team', href: '/team' },
-      { name: 'The 6 Components', href: '/six-components' },
-      { name: 'Careers', href: '/careers' },
-    ],
-  },
-  support: {
-    title: 'Support',
-    links: [
-      { name: 'Contact Us', href: '/contact' },
-      { name: 'FAQs', href: '/faq' },
-      { name: 'Shipping & Delivery', href: '/shipping' },
-      { name: 'Returns & Exchanges', href: '/returns' },
-      { name: 'Warranty', href: '/warranty' },
-    ],
-  },
-  resources: {
-    title: 'Resources',
-    links: [
-      { name: 'Sleep Quiz', href: '/quiz' },
-      { name: 'Mattress Guide', href: '/guide' },
-      { name: 'Sleep Blog', href: '/blog' },
-      { name: 'Financing Options', href: '/financing' },
-      { name: 'Refer a Friend', href: '/referral' },
-    ],
-  },
-};
+const shopLinks = [
+  { name: 'ABT Exclusive', href: '/abt-exclusive' },
+  { name: 'Sleep6 Home Line', href: '/home-line' },
+  { name: 'Shop by Feel', href: '/shop-by-feel' },
+  { name: 'Compare Mattresses', href: '/compare' },
+];
 
-const trustBadges = [
-  { icon: Flag, label: 'Made in USA' },
-  { icon: Truck, label: 'Free Delivery' },
-  { icon: DollarSign, label: 'Financing Available' },
-  { icon: Shield, label: 'Up to 20 Year Warranty' },
+const companyLinks = [
+  { name: 'About Us', href: '/about' },
+  { name: 'Sleep Quiz', href: '/quiz' },
+  { name: 'Terms & Conditions', href: '/terms' },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-navy text-white relative z-10">
-      {/* Trust badges */}
-      <div className="border-b border-navy-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {trustBadges.map((badge) => (
-              <div key={badge.label} className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-navy-light rounded-full flex items-center justify-center">
-                  <badge.icon className="w-6 h-6 text-gold" />
-                </div>
-                <span className="font-medium">{badge.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
-          {/* Logo and contact */}
-          <div className="col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          {/* Brand block */}
+          <div className="md:col-span-2">
             <Link href="/" className="inline-block mb-4 bg-white rounded-lg px-3 py-2">
               <Image
                 src="/images/logo.png"
@@ -84,44 +33,102 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-300 text-sm mb-6">
-              Six essential components. One perfect mattress. Handcrafted in America with 25+ years of expertise.
+              Six essential components. One perfect mattress.
             </p>
             <div className="space-y-3">
               <a
-                href="tel:1-800-SLEEP-6"
-                className="flex items-center gap-2 text-gray-300 hover:text-gold transition-colors"
+                href="tel:18443753376"
+                className="flex items-center gap-2 text-gray-300 hover:text-gold transition-colors text-sm"
               >
                 <Phone className="w-4 h-4" />
-                <span>1-800-SLEEP-6</span>
+                <span>1-844-375-3376</span>
               </a>
               <a
-                href="mailto:hello@sleepsix.com"
-                className="flex items-center gap-2 text-gray-300 hover:text-gold transition-colors"
+                href="mailto:wholesale@sleep6.com"
+                className="flex items-center gap-2 text-gray-300 hover:text-gold transition-colors text-sm"
               >
                 <Mail className="w-4 h-4" />
-                <span>hello@sleepsix.com</span>
+                <span>wholesale@sleep6.com</span>
+              </a>
+              <a
+                href="mailto:press@sleep6.com"
+                className="flex items-center gap-2 text-gray-300 hover:text-gold transition-colors text-sm"
+              >
+                <Mail className="w-4 h-4" />
+                <span>press@sleep6.com</span>
+              </a>
+              <a
+                href="mailto:support@Sleep6.com"
+                className="flex items-center gap-2 text-gray-300 hover:text-gold transition-colors text-sm"
+              >
+                <Mail className="w-4 h-4" />
+                <span>support@Sleep6.com</span>
+              </a>
+            </div>
+            <div className="flex items-center gap-4 mt-4">
+              <a
+                href="https://www.facebook.com/Sleep6Mattress"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-gold transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://x.com/Sleep6Mattress"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-gold transition-colors"
+                aria-label="X (Twitter)"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/Sleep6_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-gold transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([key, section]) => (
-            <div key={key}>
-              <h3 className="font-semibold mb-4">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-300 hover:text-gold text-sm transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Shop links */}
+          <div>
+            <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-400">Shop</h3>
+            <ul className="space-y-2">
+              {shopLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-300 hover:text-gold text-sm transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company links */}
+          <div>
+            <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-400">Company</h3>
+            <ul className="space-y-2">
+              {companyLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-300 hover:text-gold text-sm transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -153,20 +160,9 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-navy-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Sleep6. All rights reserved.</p>
-            <div className="flex gap-6">
-              <Link href="/privacy" className="hover:text-gold transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-gold transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="/accessibility" className="hover:text-gold transition-colors">
-                Accessibility
-              </Link>
-            </div>
-          </div>
+          <p className="text-sm text-gray-400 text-center md:text-left">
+            &copy; {new Date().getFullYear()} Sleep6. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

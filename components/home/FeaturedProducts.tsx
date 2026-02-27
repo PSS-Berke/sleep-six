@@ -4,49 +4,49 @@ import { ArrowRight } from 'lucide-react';
 
 // Product data with luxury positioning
 const flagship = {
-  id: 4,
-  slug: 'cosmos-hybrid',
-  name: 'Cosmos Hybrid',
+  id: 'hl-4',
+  slug: 'dream',
+  name: 'Sleep6 Dream',
   type: 'Hybrid',
-  tagline: 'Ultimate comfort with zero motion transfer',
+  tagline: 'Near-luxury performance within reach',
   heroDescription:
-    'Seven layers of precision engineering. Individually wrapped coils meet premium foams for the perfect balance of support and comfort.',
-  layers: 7,
+    'Individually wrapped coils meet advanced foam layers for the kind of performance you expect from a luxury mattress — at a price that doesn\'t require compromise.',
+  layers: 5,
   keyBenefit: 'Zero Motion Transfer',
-  price: 1348,
-  image: '/images/products/luna-1.png',
+  price: 1299,
+  image: '/images/products/Dream/Dream Mattress photoshoot.png',
 };
 
 const supportingProducts = [
   {
-    id: 3,
-    slug: 'fak-cosmos',
-    name: 'FAK Cosmos',
-    type: 'Luxury Foam',
-    tagline: 'Maximum comfort with premium materials',
-    keyBenefit: 'Temperature Regulation',
-    price: 1348,
-    image: '/images/products/fak-cosmos-1.png',
+    id: 'hl-3',
+    slug: 'slumber',
+    name: 'Sleep6 Slumber',
+    type: 'Memory Foam',
+    tagline: 'Rich, plush comfort that envelops you',
+    keyBenefit: 'Deep Pressure Relief',
+    price: 999,
+    image: '/images/products/Slumber/slumber mattress photoshoot.png',
   },
   {
-    id: 2,
-    slug: 'mystic',
-    name: 'Mystic',
+    id: 'hl-2',
+    slug: 'doze',
+    name: 'Sleep6 Doze',
     type: 'Foam',
-    tagline: 'Balances affordability and comfort',
-    keyBenefit: 'Motion Isolation',
-    price: 848,
-    image: '/images/products/mystic-1.png',
+    tagline: 'A noticeable upgrade in every way',
+    keyBenefit: 'Enhanced Comfort',
+    price: 749,
+    image: '/images/products/Doze/Doze mattress photoshoot.png',
   },
   {
-    id: 1,
-    slug: 'luna',
-    name: 'Luna',
+    id: 'hl-1',
+    slug: 'nod',
+    name: 'Sleep6 Nod',
     type: 'Foam',
-    tagline: 'The essentials of comfort and support',
+    tagline: 'Dependable comfort, night after night',
     keyBenefit: 'Essential Comfort',
-    price: 648,
-    image: '/images/products/luna-1.png',
+    price: 549,
+    image: '/images/products/Nod/nod photoshoot frong.png',
   },
 ];
 
@@ -57,13 +57,13 @@ export default function FeaturedProducts() {
         {/* Editorial Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-gold-dark font-medium text-sm mb-4">
-            abt Exclusive Collection
+            Sleep6 Home Line
           </span>
           <h2 className="text-4xl md:text-5xl font-serif text-navy mb-6">
             Handcrafted for <span className="wavy-underline">Perfect Sleep</span>
           </h2>
           <p className="text-lg text-gray-500 max-w-xl mx-auto leading-relaxed">
-            Each mattress born from 25 years of expertise. Made in America, available exclusively through abt.
+            Each mattress born from 25 years of expertise. Made in America, available exclusively online.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export default function FeaturedProducts() {
                   Flagship Collection
                 </span>
                 <h3 className="text-3xl lg:text-4xl font-serif text-navy mb-2">
-                  Cosmos <span className="font-semibold">Hybrid</span>
+                  Sleep6 <span className="font-semibold">Dream</span>
                 </h3>
                 <p className="text-xl text-gray-500 mb-4">
                   {flagship.tagline}
@@ -120,7 +120,7 @@ export default function FeaturedProducts() {
 
                 {/* CTA */}
                 <div className="inline-flex items-center gap-3 text-gold-dark group-hover:gap-5 transition-all duration-500">
-                  <span className="font-medium">Discover the Cosmos Hybrid</span>
+                  <span className="font-medium">Discover the Sleep6 Dream</span>
                   <ArrowRight className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-500" />
                 </div>
               </div>
@@ -180,9 +180,9 @@ export default function FeaturedProducts() {
 
         {/* View All Link */}
         <div className="text-center">
-          <Link href="/products" className="inline-flex items-center gap-3 group">
+          <Link href="/home-line" className="inline-flex items-center gap-3 group">
             <span className="text-navy font-medium group-hover:text-gold-dark transition-colors duration-300">
-              Explore the abt Exclusive Collection
+              Explore the Sleep6 Home Line
             </span>
             <span className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-gold/30 group-hover:border-gold group-hover:bg-gold transition-all duration-300">
               <ArrowRight className="w-4 h-4 text-gold group-hover:text-white transition-colors duration-300" />

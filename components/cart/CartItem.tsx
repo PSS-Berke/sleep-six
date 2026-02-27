@@ -45,7 +45,7 @@ export default function CartItem({ item, expanded = false }: CartItemProps) {
           {item.productName}
         </Link>
         <p className="text-sm text-gray-400 mt-0.5">
-          {item.size} &bull; {item.firmness}
+          {item.size}
         </p>
         <p className="text-xs text-gray-300 mt-0.5">{item.productType}</p>
 

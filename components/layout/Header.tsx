@@ -10,7 +10,8 @@ const navigation = {
   mattresses: {
     label: 'Mattresses',
     items: [
-      { name: 'Sleep6 Home Line', href: '/home-line' },
+      { name: 'Sleep6', href: '/home-line' },
+      { name: 'Abt Exclusive', href: '/abt-exclusive' },
       { name: 'Shop by Feel', href: '/shop-by-feel' },
       { name: 'Compare Mattresses', href: '/compare' },
     ],
@@ -31,9 +32,9 @@ export default function Header() {
             <span>Proudly Made in the USA</span>
           </div>
           <div className="hidden sm:flex items-center gap-4">
-            <a href="tel:1-800-SLEEP-6" className="flex items-center gap-1 hover:text-gold-light transition-colors">
+            <a href="tel:18443753376" className="flex items-center gap-1 hover:text-gold-light transition-colors">
               <Phone className="w-4 h-4" />
-              <span>1-800-SLEEP-6</span>
+              <span>1-844-375-3376</span>
             </a>
           </div>
         </div>
@@ -99,7 +100,7 @@ export default function Header() {
           {/* CTA button and Cart */}
           <div className="hidden lg:flex items-center gap-4">
             <Link
-              href="/products"
+              href="/abt-exclusive"
               className="bg-gold hover:bg-gold-dark text-white font-semibold px-6 py-2.5 rounded-full transition-colors"
             >
               Shop Now
@@ -160,7 +161,7 @@ export default function Header() {
             </div>
             <div className="pt-4">
               <Link
-                href="/products"
+                href="/abt-exclusive"
                 className="block w-full bg-gold hover:bg-gold-dark text-white font-semibold px-6 py-3 rounded-full text-center transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >

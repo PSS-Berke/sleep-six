@@ -11,7 +11,6 @@ export interface CartItem {
   productType: string;
   size: string;
   sizeDimensions: string;
-  firmness: string;
   price: number;
   originalPrice: number;
   quantity: number;
@@ -46,8 +45,8 @@ interface CartContextValue {
 }
 
 // Generate unique cart item ID
-const generateCartItemId = (productId: string, size: string, firmness: string): string => {
-  return `${productId}-${size.toLowerCase().replace(/\s/g, '-')}-${firmness.toLowerCase()}`;
+const generateCartItemId = (productId: string, size: string): string => {
+  return `${productId}-${size.toLowerCase().replace(/\s/g, '-')}`;
 };
 
 // Reducer
@@ -56,8 +55,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
     case 'ADD_ITEM': {
       const id = generateCartItemId(
         action.payload.productId,
-        action.payload.size,
-        action.payload.firmness
+        action.payload.size
       );
 
       // Check if item already exists

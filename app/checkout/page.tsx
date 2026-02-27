@@ -35,7 +35,7 @@ export default function CheckoutPage() {
 
     try {
       const items = state.items.map((item) => ({
-        name: `${item.productName} - ${item.size} - ${item.firmness}`,
+        name: `${item.productName} - ${item.size}`,
         price: item.price,
         quantity: item.quantity,
         image: item.image,
@@ -330,7 +330,7 @@ export default function CheckoutPage() {
                       <div className="flex-1 min-w-0">
                         <p className="font-medium text-navy truncate">{item.productName}</p>
                         <p className="text-xs text-gray-400">
-                          {item.size} &bull; {item.firmness}
+                          {item.size}
                         </p>
                         <p className="text-sm text-navy mt-1">${item.price.toLocaleString()}</p>
                       </div>

@@ -3,20 +3,18 @@
 import { useState } from 'react';
 import { Check, MapPin, Package, Truck, Home } from 'lucide-react';
 import type { Product } from '@/data/products';
-import MattressLayers from './MattressLayers';
 
 interface ProductTabsProps {
   product: Product;
 }
 
-type TabKey = 'overview' | 'components' | 'materials' | 'delivery';
+type TabKey = 'overview' | 'materials' | 'delivery';
 
 export default function ProductTabs({ product }: ProductTabsProps) {
   const [activeTab, setActiveTab] = useState<TabKey>('overview');
 
   const tabs: { key: TabKey; label: string }[] = [
     { key: 'overview', label: 'Overview' },
-    { key: 'components', label: 'Components' },
     { key: 'materials', label: 'Materials' },
     { key: 'delivery', label: 'Delivery' },
   ];
@@ -91,10 +89,6 @@ export default function ProductTabs({ product }: ProductTabsProps) {
           </div>
         )}
 
-        {activeTab === 'components' && (
-          <MattressLayers components={product.components} productName={product.name} />
-        )}
-
         {activeTab === 'materials' && (
           <div className="space-y-8">
             <div className="text-center">
@@ -147,11 +141,10 @@ export default function ProductTabs({ product }: ProductTabsProps) {
           <div className="space-y-12">
             <div className="text-center">
               <h3 className="text-2xl font-serif text-navy mb-4">
-                Free <span className="font-semibold">White Glove</span> Delivery
+                Fast Shipping, <span className="font-semibold">Easy Setup</span>
               </h3>
               <p className="text-gray-600 text-lg max-w-xl mx-auto">
-                Your {product.name} delivered to your room of choice, set up, and your old mattress
-                removed — all complimentary.
+                Your {product.name} ships compressed in a box straight to your door. Just unbox, unroll, and watch it expand to full size in minutes.
               </p>
             </div>
 
@@ -165,12 +158,12 @@ export default function ProductTabs({ product }: ProductTabsProps) {
                 {
                   icon: Truck,
                   title: 'Ships in 5-7 Days',
-                  desc: 'Carefully packaged and shipped to your area',
+                  desc: 'Compressed and boxed for easy doorstep delivery',
                 },
                 {
                   icon: Home,
-                  title: 'White Glove Setup',
-                  desc: 'Delivered and set up in your room of choice',
+                  title: 'Unbox & Expand',
+                  desc: 'Unroll in your room and it expands to full size within hours',
                 },
               ].map((step, i) => (
                 <div
@@ -184,30 +177,6 @@ export default function ProductTabs({ product }: ProductTabsProps) {
                   <p className="text-sm text-gray-500">{step.desc}</p>
                 </div>
               ))}
-            </div>
-
-            <div className="bg-gold/10 rounded-3xl p-8 border-2 border-gold/20">
-              <h4 className="font-semibold text-navy text-center mb-6">
-                Customer Satisfaction Guarantee
-              </h4>
-              <p className="text-gray-600 text-center mb-6 max-w-xl mx-auto">
-                We stand behind our products. If you&apos;re not completely
-                satisfied, we&apos;ll help you find the right solution.
-              </p>
-              <ul className="max-w-md mx-auto space-y-3">
-                {[
-                  'Free firmness exchange available',
-                  'Up to 20 year warranty coverage',
-                  'Dedicated customer support',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-gray-700">
-                    <div className="w-5 h-5 bg-gold/20 rounded-full flex items-center justify-center">
-                      <Check className="w-3 h-3 text-gold" />
-                    </div>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         )}

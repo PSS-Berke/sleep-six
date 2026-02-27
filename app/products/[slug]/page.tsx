@@ -2,11 +2,13 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import { getProductBySlug, getAllProductSlugs, products } from '@/data/products';
+import { getProductBySlug, getAllProductSlugs, products, homeLineProducts } from '@/data/products';
 import ImageGallery from '@/components/product/ImageGallery';
 import ProductInfo from '@/components/product/ProductInfo';
 import ProductTabs from '@/components/product/ProductTabs';
 import FitsAnyBed from '@/components/product/FitsAnyBed';
+import LayerSwitcher from '@/components/home/LayerSwitcher';
+import { Check } from 'lucide-react';
 
 interface ProductPageProps {
   params: Promise<{
@@ -50,8 +52,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
-  // Get related products (excluding current product)
-  const relatedProducts = products
+  // Get related products from the same line (excluding current product)
+  const productPool = product.brand === 'sleep6-home' ? homeLineProducts : products;
+  const relatedProducts = productPool
     .filter((p) => p.slug !== slug)
     .slice(0, 3)
     .map((p) => ({
@@ -79,7 +82,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       {/* Main product section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="grid lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20">
           {/* Image gallery */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <ImageGallery images={product.images} productName={product.name} />
@@ -96,6 +99,36 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         {/* Fits any bed section */}
         <FitsAnyBed />
+      </section>
+
+      <LayerSwitcher />
+
+      {/* Customer Satisfaction Guarantee */}
+      <section className="py-16 bg-[#faf8f5] relative z-10">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gold/10 rounded-3xl p-8 border-2 border-gold/20">
+            <h4 className="font-semibold text-navy text-center text-xl mb-4">
+              Customer Satisfaction Guarantee
+            </h4>
+            <p className="text-gray-600 text-center mb-6 max-w-xl mx-auto">
+              We stand behind our products. If you&apos;re not completely satisfied, we&apos;ll help you find the right solution.
+            </p>
+            <ul className="max-w-md mx-auto space-y-3">
+              {[
+                '100% fiberglass-free construction',
+                'Up to 20 year warranty coverage',
+                'Ships to all 50 states',
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3 text-gray-700">
+                  <div className="w-5 h-5 bg-gold/20 rounded-full flex items-center justify-center">
+                    <Check className="w-3 h-3 text-gold" />
+                  </div>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </section>
 
       {/* Related products section */}

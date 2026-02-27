@@ -4,17 +4,16 @@ import { ArrowRight } from 'lucide-react';
 import { homeLineProducts } from '@/data/products';
 
 export const metadata = {
-  title: 'Sleep6 Home Line | Online Exclusives',
+  title: 'Sleep6 | Online Exclusives',
   description:
     'Five tiers of premium comfort, available exclusively online. From dependable to absolutely premium — find your perfect level.',
 };
 
 const tierDescriptions: Record<string, string> = {
-  essential: 'Dependable comfort',
-  elevated: 'Noticeable upgrade',
-  indulgent: 'Rich, plush experience',
-  decadent: 'Near-luxury performance',
-  insatiable: 'Absolute premium',
+  nod: 'Dependable comfort',
+  doze: 'Noticeable upgrade',
+  slumber: 'Rich, plush experience',
+  dream: 'Near-luxury performance',
 };
 
 const adultProducts = homeLineProducts.filter((p) => p.type !== 'Crib Mattress');
@@ -25,8 +24,8 @@ const productsWithTiers = adultProducts.map((p) => ({
   tierDescription: tierDescriptions[p.slug] || '',
 }));
 
-const flagship = productsWithTiers.find((p) => p.slug === 'insatiable');
-const supportingProducts = productsWithTiers.filter((p) => p.slug !== 'insatiable');
+const flagship = productsWithTiers.find((p) => p.slug === 'dream');
+const supportingProducts = productsWithTiers.filter((p) => p.slug !== 'dream');
 
 export default function HomeLinePage() {
   return (
@@ -50,7 +49,7 @@ export default function HomeLinePage() {
             Online Exclusives
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-navy mb-6">
-            Sleep6 <span className="wavy-underline">Home Line</span>
+            <span className="wavy-underline">Sleep6</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6 leading-relaxed">
             Five tiers of comfort. One for every sleeper. Available only here.
@@ -58,7 +57,7 @@ export default function HomeLinePage() {
 
           {/* Tier ladder — visual teaser */}
           <div className="flex flex-wrap justify-center gap-2 mb-10 text-sm">
-            {['Essential', 'Elevated', 'Indulgent', 'Decadent', 'Insatiable'].map((tier, i, arr) => (
+            {['Nod', 'Doze', 'Slumber', 'Dream'].map((tier, i, arr) => (
               <span key={tier} className="flex items-center gap-2">
                 <span className="text-gray-500">{tier}</span>
                 {i < arr.length - 1 && <span className="text-gold/40">›</span>}
@@ -92,7 +91,7 @@ export default function HomeLinePage() {
       <section className="py-24 relative overflow-hidden z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
-          {/* Flagship — Insatiable */}
+          {/* Flagship — Dream */}
           {flagship && (
             <div className="mb-12">
               <Link
@@ -151,7 +150,7 @@ export default function HomeLinePage() {
 
                     {/* CTA */}
                     <div className="inline-flex items-center gap-3 text-gold-dark group-hover:gap-5 transition-all duration-500">
-                      <span className="font-medium">Discover the Insatiable</span>
+                      <span className="font-medium">Discover the Dream</span>
                       <ArrowRight className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-500" />
                     </div>
                   </div>
@@ -226,7 +225,7 @@ export default function HomeLinePage() {
             {/* Section Header */}
             <div className="text-center mb-12">
               <span className="inline-block text-gold-dark font-medium text-sm mb-4">
-                Sleep6 Home Line
+                Sleep6
               </span>
               <h2 className="text-3xl md:text-4xl font-serif text-navy mb-4">
                 The <span className="wavy-underline">Nest</span>
@@ -336,7 +335,7 @@ export default function HomeLinePage() {
               <p className="text-gray-500 text-sm">Our full in-store collection, available exclusively through abt.</p>
             </div>
             <Link
-              href="/products"
+              href="/abt-exclusive"
               className="shrink-0 inline-flex items-center gap-3 bg-navy hover:bg-navy-light text-white font-medium px-7 py-3.5 rounded-full transition-all duration-300 group"
             >
               Shop abt Exclusive

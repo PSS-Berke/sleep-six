@@ -23,7 +23,7 @@ const sleepPositions = [
     icon: Moon,
     description: 'Cozy cushioning for your shoulders & hips',
     tip: 'You curl up on your side? We get it. You\'ll love something with extra softness where you need it most.',
-    recommended: ['indulgent', 'decadent'],
+    recommended: ['slumber', 'dream'],
   },
   {
     slug: 'back-sleeper',
@@ -31,7 +31,7 @@ const sleepPositions = [
     icon: Activity,
     description: 'Gentle support that hugs your spine',
     tip: 'Sleeping on your back is wonderful for alignment. We\'ll find you something that keeps everything happy.',
-    recommended: ['decadent', 'insatiable'],
+    recommended: ['slumber', 'dream'],
   },
   {
     slug: 'stomach-sleeper',
@@ -39,7 +39,7 @@ const sleepPositions = [
     icon: Bed,
     description: 'A little firmer to keep you comfy',
     tip: 'Stomach sleepers do best with a bit more support. No sinking, just floating.',
-    recommended: ['essential', 'elevated'],
+    recommended: ['nod', 'doze'],
   },
   {
     slug: 'combination',
@@ -47,7 +47,7 @@ const sleepPositions = [
     icon: RefreshCw,
     description: 'Perfect for restless dreamers',
     tip: 'You like to switch it up? Same. We\'ll find something that moves with you.',
-    recommended: ['decadent', 'insatiable'],
+    recommended: ['slumber', 'dream'],
   },
 ];
 
@@ -58,7 +58,7 @@ const sleepConcerns = [
     icon: Thermometer,
     description: 'Stay cool and breezy all night',
     tip: 'Waking up sweaty? No fun. Our cooling materials help you stay comfortable.',
-    recommended: ['decadent', 'insatiable'],
+    recommended: ['slumber', 'dream'],
   },
   {
     slug: 'couples',
@@ -66,7 +66,7 @@ const sleepConcerns = [
     icon: Users,
     description: 'Sleep peacefully together',
     tip: 'When your partner tosses and turns, you won\'t feel a thing. Promise.',
-    recommended: ['indulgent', 'decadent'],
+    recommended: ['slumber', 'dream'],
   },
   {
     slug: 'back-pain',
@@ -74,7 +74,7 @@ const sleepConcerns = [
     icon: Activity,
     description: 'Wake up without the aches',
     tip: 'We hear this a lot. The right support can make mornings feel so much better.',
-    recommended: ['decadent', 'insatiable'],
+    recommended: ['slumber', 'dream'],
   },
   {
     slug: 'light-sleeper',
@@ -82,7 +82,7 @@ const sleepConcerns = [
     icon: Volume2,
     description: 'Undisturbed, peaceful rest',
     tip: 'Light sleepers deserve deep sleep too. Motion isolation is your friend.',
-    recommended: ['indulgent', 'decadent'],
+    recommended: ['slumber', 'dream'],
   },
 ];
 

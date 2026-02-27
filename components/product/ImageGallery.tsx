@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 
 interface ImageGalleryProps {
   images: string[];
@@ -11,7 +12,19 @@ interface ImageGalleryProps {
 
 export default function ImageGallery({ images, productName }: ImageGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const hasImages = images && images.length > 0;
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+      if (e.key === 'Escape') setLightboxOpen(false);
+      if (e.key === 'ArrowRight') setCurrentIndex((prev) => (prev + 1) % images.length);
+      if (e.key === 'ArrowLeft') setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [lightboxOpen, images.length]);
 
   const nextImage = () => {
     if (hasImages) {
@@ -30,7 +43,10 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
   return (
     <div className="space-y-6">
       {/* Main image - Portrait aspect ratio */}
-      <div className="relative aspect-[3/4] bg-[#f8f6f3] rounded-3xl overflow-hidden group border-2 border-gold/10">
+      <div
+        className="relative aspect-[4/3] bg-[#f8f6f3] rounded-3xl overflow-hidden group border-2 border-gold/10"
+        onClick={() => hasImages && setLightboxOpen(true)}
+      >
         {hasImages ? (
           <Image
             src={images[currentIndex]}
@@ -47,6 +63,13 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
 
         {/* Subtle gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-t from-gold/5 via-transparent to-transparent pointer-events-none" />
+
+        {/* Zoom hint */}
+        {hasImages && (
+          <div className="absolute top-4 right-4 p-2 bg-white/80 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <ZoomIn className="w-4 h-4 text-gold-dark" />
+          </div>
+        )}
 
         {/* Navigation - visible on hover */}
         {totalImages > 1 && (
@@ -113,6 +136,58 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
             </button>
           ))}
         </div>
+      )}
+
+      {/* Lightbox */}
+      {lightboxOpen && hasImages && createPortal(
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          onClick={() => setLightboxOpen(false)}
+        >
+          {/* Close button */}
+          <button
+            className="absolute top-6 right-6 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors duration-200"
+            onClick={() => setLightboxOpen(false)}
+            aria-label="Close"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+
+          {/* Image */}
+          <div
+            className="relative max-w-5xl max-h-[90vh] w-full mx-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={images[currentIndex]}
+              alt={`${productName} - Image ${currentIndex + 1}`}
+              width={1500}
+              height={1200}
+              className="object-contain w-full h-full max-h-[90vh] rounded-2xl"
+            />
+          </div>
+
+          {/* Arrow navigation (only if multiple images) */}
+          {totalImages > 1 && (
+            <>
+              <button
+                className="absolute left-6 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors duration-200"
+                onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="w-6 h-6 text-white" />
+              </button>
+              <button
+                className="absolute right-6 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors duration-200"
+                onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                aria-label="Next image"
+              >
+                <ChevronRight className="w-6 h-6 text-white" />
+              </button>
+            </>
+          )}
+        </div>,
+        document.body
       )}
     </div>
   );

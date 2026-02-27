@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Star, Info, ArrowRight, Check } from 'lucide-react';
+import { Star, Info, ArrowRight } from 'lucide-react';
 import type { Product, Size } from '@/data/products';
 import { useCart } from '@/contexts/CartContext';
 
@@ -14,10 +14,6 @@ export default function ProductInfo({ product }: ProductInfoProps) {
   const [selectedSize, setSelectedSize] = useState<Size>(
     product.sizes.find((s) => s.name === 'Queen') || product.sizes[0]
   );
-  const [selectedFirmness, setSelectedFirmness] = useState(
-    product.selectedFirmness || 'Medium'
-  );
-
   const handleAddToCart = () => {
     addItem({
       productId: product.id,
@@ -26,7 +22,6 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       productType: product.type,
       size: selectedSize.name,
       sizeDimensions: selectedSize.dimensions,
-      firmness: selectedFirmness,
       price: selectedSize.price,
       originalPrice: product.originalPrice,
       quantity: 1,
@@ -125,36 +120,6 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         </div>
       </div>
 
-      {/* Firmness Selector */}
-      <div className="space-y-4">
-        <label className="text-sm text-gold-dark font-medium">
-          Select Firmness
-        </label>
-        <div className="grid grid-cols-3 gap-3">
-          {product.firmness.map((option) => (
-            <button
-              key={option.level}
-              onClick={() => setSelectedFirmness(option.level)}
-              className={`
-                relative p-4 rounded-2xl border-2 text-left transition-all duration-500
-                ${selectedFirmness === option.level
-                  ? 'border-gold bg-white shadow-lg shadow-gold/10'
-                  : 'border-gold/10 hover:border-gold/30 bg-white/60'
-                }
-              `}
-            >
-              <div className="flex items-center justify-between mb-1">
-                <p className="font-semibold text-navy">{option.level}</p>
-                {selectedFirmness === option.level && (
-                  <Check className="w-4 h-4 text-gold" />
-                )}
-              </div>
-              <p className="text-xs text-gray-400 line-clamp-2">{option.description}</p>
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Add to Cart - Premium Navy */}
       <button
         onClick={handleAddToCart}
@@ -175,7 +140,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         </a>
         <span className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-          Free White Glove Delivery
+          Free Doorstep Delivery
         </span>
         <span className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 bg-gold rounded-full" />
