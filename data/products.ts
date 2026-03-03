@@ -541,7 +541,7 @@ export const homeLineProducts: Product[] = [
     materials: [
       { name: 'Stretch Knit Cover', source: 'Wisconsin, USA', certification: 'Breathable', description: 'Soft, breathable stretch knit fabric for XPlush comfort.' },
       { name: 'CoolGel + Joma® Wool Quilt', source: 'Wisconsin, USA', certification: 'CertiPUR-US', description: 'Dual-layer cooling gel and Joma® Wool fill draws heat away for premium plush feel.' },
-      { name: '100% Natural Latex Foam', source: 'Wisconsin, USA', description: 'Natural latex for cool, responsive, buoyant pressure relief.' },
+      { name: '100% Natural Latex Foam', source: 'Wisconsin, USA', certification: 'Rainforest Alliance', description: 'Natural latex for cool, responsive, buoyant pressure relief.' },
       { name: 'Serene™ 2" Comfort Foam', source: 'Wisconsin, USA', certification: 'CertiPUR-US', description: '2" heat-moderating plush foam for deep contouring and pressure relief.' },
       { name: 'High Density Comfort Foam', source: 'Wisconsin, USA', certification: 'CertiPUR-US', description: 'Open-cell HD foam for airflow, support, and long-term durability.' },
       { name: 'Heavy Duty (2#) Comfort Foam', source: 'Wisconsin, USA', certification: 'CertiPUR-US', description: '2" heavy-duty foam for additional contouring and heat-moderating pressure relief.' },
@@ -587,7 +587,7 @@ export const homeLineProducts: Product[] = [
       { name: 'Firm Support Core', description: 'Dense, flat support core provides the firm surface recommended for safe infant sleep', materials: 'HD support foam' },
     ],
     materials: [
-      { name: 'Waterproof Cover', source: 'North Carolina, USA', description: 'Washable waterproof quilted fabric' },
+      { name: 'Waterproof Cover', source: 'North Carolina, USA', certification: 'OEKO-TEX', description: 'Washable waterproof quilted fabric' },
       { name: 'Breathable Foam', source: 'Georgia, USA', certification: 'CertiPUR-US', description: 'Airflow-promoting comfort layer' },
       { name: 'HD Support Foam', source: 'North Carolina, USA', certification: 'CertiPUR-US', description: 'Firm, flat safe-sleep core' },
     ],
