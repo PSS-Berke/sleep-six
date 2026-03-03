@@ -485,7 +485,7 @@ export const homeLineProducts: Product[] = [
       { name: 'Stretch Knit Cover', source: 'Wisconsin, USA', certification: 'Breathable', description: 'Soft, breathable stretch knit fabric for plush comfort.' },
       { name: 'CoolGel Quilt Fill', source: 'Wisconsin, USA', certification: 'CertiPUR-US', description: 'Dual-layer cooling gel fill draws heat away and enhances plush feel.' },
       { name: 'High Density Comfort Foam', source: 'Wisconsin, USA', certification: 'CertiPUR-US', description: 'Open-cell HD foam for airflow, comfort, and support.' },
-      { name: '100% Natural Latex Foam', source: 'Wisconsin, USA', description: 'Natural latex for responsive, buoyant pressure relief.' },
+      { name: '100% Natural Latex Foam', source: 'Wisconsin, USA', certification: 'Rainforest Alliance', description: 'Natural latex for responsive, buoyant pressure relief.' },
       { name: 'Serene™ 2" Plush Foam', source: 'Wisconsin, USA', certification: 'CertiPUR-US', description: '2" heat-moderating plush foam for deep contouring and pressure relief.' },
       { name: 'Tempered Steel Coil System', source: 'Wisconsin, USA', certification: 'Made in USA', description: 'Individually wrapped coils with Quantum® sides and Caliber™ ends for edge-to-edge support.' },
     ],
