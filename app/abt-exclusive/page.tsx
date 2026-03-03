@@ -16,19 +16,21 @@ const abtProducts = products.filter((p) => p.brand === 'abt');
 const productsWithBenefits = abtProducts.map((p) => ({
   ...p,
   keyBenefit:
-    p.slug === 'cosmos-hybrid'
-      ? 'Zero Motion Transfer'
-      : p.slug === 'fak-cosmos'
-        ? 'Temperature Regulation'
-        : p.slug === 'mystic'
-          ? 'Motion Isolation'
-          : 'Essential Comfort',
+    p.slug === 'insatiable'
+      ? 'Natural Latex Comfort'
+      : p.slug === 'cosmos-hybrid'
+        ? 'Zero Motion Transfer'
+        : p.slug === 'fak-cosmos'
+          ? 'Temperature Regulation'
+          : p.slug === 'mystic'
+            ? 'Motion Isolation'
+            : 'Essential Comfort',
   layers:
-    p.slug === 'cosmos-hybrid' ? 7 : p.slug === 'fak-cosmos' ? 4 : p.slug === 'mystic' ? 3 : 3,
+    p.slug === 'insatiable' ? 6 : p.slug === 'cosmos-hybrid' ? 7 : p.slug === 'fak-cosmos' ? 4 : p.slug === 'mystic' ? 3 : 3,
 }));
 
-const flagship = productsWithBenefits.find((p) => p.slug === 'cosmos-hybrid')!;
-const supportingProducts = productsWithBenefits.filter((p) => p.slug !== 'cosmos-hybrid');
+const flagship = productsWithBenefits.find((p) => p.slug === 'insatiable')!;
+const supportingProducts = productsWithBenefits.filter((p) => p.slug !== 'insatiable');
 
 export default function AbtExclusivePage() {
   return (
@@ -71,7 +73,7 @@ export default function AbtExclusivePage() {
             </span>
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-              Up to 20 Year Warranty
+              10 Year Warranty
             </span>
           </div>
         </div>
@@ -107,10 +109,10 @@ export default function AbtExclusivePage() {
                 {/* Content Side */}
                 <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16">
                   <span className="text-gold-dark font-medium text-sm mb-4">
-                    Flagship Collection
+                    The Pinnacle
                   </span>
                   <h2 className="text-3xl lg:text-4xl font-serif text-navy mb-2">
-                    Cosmos <span className="font-semibold">Hybrid</span>
+                    {flagship.name}
                   </h2>
                   <p className="text-xl text-gray-500 mb-4">{flagship.tagline}</p>
                   <p className="text-gray-400 leading-relaxed mb-8 max-w-md">{flagship.description}</p>
@@ -136,7 +138,7 @@ export default function AbtExclusivePage() {
 
                   {/* CTA */}
                   <div className="inline-flex items-center gap-3 text-gold-dark group-hover:gap-5 transition-all duration-500">
-                    <span className="font-medium">Discover the Cosmos Hybrid</span>
+                    <span className="font-medium">Discover the {flagship.name}</span>
                     <ArrowRight className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-500" />
                   </div>
                 </div>

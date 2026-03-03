@@ -7,13 +7,16 @@ import {
   Shield,
   Flag,
   Check,
-  Award,
-  Sparkles
+  X,
+  Layers,
+  Scissors,
+  Palette,
+  Hammer,
 } from 'lucide-react';
 
 export const metadata = {
   title: 'About Us | Sleep6',
-  description: 'Learn about Sleep6 - 25+ years of bedding expertise, American-made mattresses with 6 essential components, delivered direct to you at a fraction of the cost.',
+  description: 'Learn about Sleep6 - 25+ years of bedding expertise, American-made mattresses built for real comfort without compromise.',
 };
 
 const stats = [
@@ -23,12 +26,19 @@ const stats = [
   { icon: Flag, value: '100%', label: 'USA Materials' },
 ];
 
-const benefits = [
-  'Latest innovative technology',
-  'Premium, certified materials',
-  'Handcrafted in the USA',
-  'Six essential components',
-  'Direct-to-consumer pricing',
+const philosophyItems = [
+  'Support proper spinal alignment',
+  'Reduce pressure points',
+  'Stay cool and breathable',
+  'Be built with high-quality materials',
+  'Last for years',
+];
+
+const designFocusItems = [
+  { icon: Layers, label: 'Clean construction' },
+  { icon: Scissors, label: 'Premium fabrics' },
+  { icon: Palette, label: 'Thoughtful design' },
+  { icon: Hammer, label: 'Reliable durability' },
 ];
 
 const promises = [
@@ -39,7 +49,7 @@ const promises = [
   },
   {
     icon: Shield,
-    title: 'Up to 20 Year Warranty',
+    title: '10 Year Warranty',
     description: 'We stand behind our craft. Your mattress is protected with our industry-leading warranty.',
   },
   {
@@ -47,6 +57,18 @@ const promises = [
     title: 'Made in USA',
     description: 'American materials, American workers. Every mattress is handcrafted in our own factory.',
   },
+];
+
+const dontBelieve = [
+  'Overcomplicated layers',
+  'Inflated "luxury" pricing',
+  'Aggressive gimmicks',
+];
+
+const doBelieve = [
+  'Quality materials',
+  'Honest value',
+  'Helping customers sleep better than ever',
 ];
 
 export default function AboutPage() {
@@ -74,49 +96,53 @@ export default function AboutPage() {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight text-navy mb-6">
-                There Is Only One{' '}
-                <span className="wavy-underline">Perfect Mattress</span>
+                Better Sleep{' '}
+                <span className="wavy-underline">Changes Everything</span>
               </h1>
 
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                With over 25 years of experience in the bedding industry, we set out to create
-                a premium product at a fraction of the traditional cost — by eliminating the
-                middleman and building our factory right here in the USA.
+                At Sleep6, we believe your mattress should deliver the perfect balance of support,
+                pressure relief, and durability — comfort without compromise, built to help your
+                body recover, restore, and wake up ready.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Section 2: Mission */}
+        {/* Section 2: About Sleep6 */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Content */}
               <div>
                 <span className="inline-block bg-gold/15 text-gold-dark font-semibold px-4 py-1 rounded-full text-sm mb-6">
-                  Our Mission
+                  About Sleep6
                 </span>
 
                 <h2 className="text-3xl md:text-4xl font-serif text-navy mb-6">
-                  Premium Quality Without the Premium Markup
+                  We Built Sleep6 Around One Simple Idea
                 </h2>
 
-                <p className="text-xl text-gray-600 mb-6">
-                  We felt it was time that you understand not only what you are purchasing,
-                  but that you deserve a luxury mattress without the inflated prices.
+                <p className="text-2xl font-light text-gray-500 mb-6 leading-relaxed">
+                  Your energy. Your health. Your focus. Your mood. Your life.
+                </p>
+
+                <p className="text-gray-600 mb-6">
+                  That&apos;s why we created Sleep6 — a mattress company built around one simple idea:
+                  comfort without compromise. We design mattresses that deliver the perfect balance
+                  of support, pressure relief, and durability — without unnecessary gimmicks or
+                  inflated markups.
                 </p>
 
                 <p className="text-gray-600 mb-8">
-                  By going direct-to-consumer, we cut out the middleman and pass those savings
-                  directly to you. No showroom overhead. No sales commissions. Just a
-                  better mattress at a better price.
+                  Every Sleep6 mattress is thoughtfully engineered to help your body recover,
+                  restore, and wake up ready.
                 </p>
 
                 <blockquote className="border-l-4 border-gold pl-6">
                   <p className="text-lg text-navy italic">
-                    &quot;In order to accomplish this, we built our factory right here in the USA
-                    and went to work to design a luxury mattress that has all 6 essential
-                    components to make the perfect mattress.&quot;
+                    &quot;Better sleep improves every part of life — from physical recovery to
+                    mental clarity.&quot;
                   </p>
                 </blockquote>
               </div>
@@ -168,64 +194,210 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Section 4: Philosophy */}
+        {/* Section 4: Meet Robert */}
         <section className="py-20 relative overflow-hidden">
-          <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-gold/10 blob-shape blur-3xl translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gold/10 blob-shape blur-3xl translate-x-1/3 translate-y-1/3" />
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Visual */}
-              <div className="bg-white border-2 border-gold/20 rounded-3xl p-8 shadow-xl shadow-gold/5">
-                <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 mx-auto mb-4 bg-gold/20 rounded-full flex items-center justify-center">
-                      <Sparkles className="w-10 h-10 text-gold-dark" />
-                    </div>
-                    <p className="text-navy font-medium">The 6 Essential Components</p>
-                    <p className="text-sm text-gray-500">What makes a perfect mattress</p>
-                  </div>
-                </div>
-              </div>
-
               {/* Content */}
               <div>
                 <span className="inline-block bg-gold/15 text-gold-dark font-semibold px-4 py-1 rounded-full text-sm mb-6">
-                  The Sleep6 Philosophy
+                  Meet Our Founder
                 </span>
 
-                <h2 className="text-3xl md:text-4xl font-serif text-navy mb-6">
-                  Six Essential Components, One Perfect Mattress
+                <h2 className="text-3xl md:text-4xl font-serif text-navy mb-2">
+                  Robert Taglianetti
                 </h2>
+                <p className="text-gold-dark font-semibold mb-6">Founder, Sleep6</p>
 
-                <p className="text-xl text-gray-600 mb-8">
-                  Utilizing the latest innovative technology and premium materials, we have
-                  created a product that we are proud to stand behind.
+                <p className="text-gray-600 mb-6">
+                  Robert brings over 25 years of experience in the mattress industry to his role
+                  as founder of Sleep6. Throughout his career, Robert has focused not just on
+                  selling mattresses, but on helping people understand the connection between
+                  quality sleep and overall wellness.
                 </p>
 
-                <ul className="space-y-4 mb-8">
-                  {benefits.map((benefit, index) => (
-                    <li key={index} className="flex items-start gap-3 text-navy">
-                      <div className="flex-shrink-0 w-6 h-6 bg-gold/20 rounded-full flex items-center justify-center mt-0.5">
-                        <Check className="w-4 h-4 text-gold-dark" />
-                      </div>
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-gray-600 mb-8">
+                  He believes that better sleep improves every part of life — from physical
+                  recovery to mental clarity. With a hands-on, relationship-driven approach,
+                  Robert has built Sleep6 around personal connection, education, and trust.
+                </p>
 
-                <Link
-                  href="/products"
-                  className="inline-flex items-center gap-2 text-gold-dark hover:text-gold font-semibold transition-colors"
-                >
-                  Explore our mattresses
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
+                <blockquote className="border-l-4 border-gold pl-6">
+                  <p className="text-lg text-navy italic">
+                    &quot;My mission is simple: help every customer sleep better and wake up
+                    stronger.&quot;
+                  </p>
+                  <footer className="mt-2 text-sm text-gray-500">— Robert Taglianetti</footer>
+                </blockquote>
+              </div>
+
+              {/* Founder image placeholder */}
+              <div className="bg-white border-2 border-gold/20 rounded-3xl p-8 shadow-xl shadow-gold/5">
+                <div className="aspect-[3/4] bg-gradient-to-br from-gold/20 to-gold/5 rounded-2xl flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-20 h-20 mx-auto mb-4 bg-gold/30 rounded-full flex items-center justify-center">
+                      <Users className="w-10 h-10 text-gold-dark" />
+                    </div>
+                    <p className="text-navy font-medium">Robert Taglianetti</p>
+                    <p className="text-sm text-gray-500">Founder, Sleep6</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Section 5: Our Promise */}
+        {/* Section 5: Our Philosophy */}
+        <section className="py-20 relative overflow-hidden bg-white/50">
+          <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-gold/10 blob-shape blur-3xl -translate-x-1/2 -translate-y-1/2" />
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Content */}
+              <div>
+                <span className="inline-block bg-gold/15 text-gold-dark font-semibold px-4 py-1 rounded-full text-sm mb-6">
+                  Our Philosophy
+                </span>
+
+                <h2 className="text-3xl md:text-4xl font-serif text-navy mb-3">
+                  Sleep Is Not a Luxury.
+                </h2>
+                <h2 className="text-3xl md:text-4xl font-serif text-navy mb-6">
+                  It&apos;s a Foundation.
+                </h2>
+
+                <p className="text-xl text-gray-600 mb-8">
+                  We believe your mattress should:
+                </p>
+
+                <ul className="space-y-4 mb-8">
+                  {philosophyItems.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3 text-navy">
+                      <div className="flex-shrink-0 w-6 h-6 bg-gold/20 rounded-full flex items-center justify-center mt-0.5">
+                        <Check className="w-4 h-4 text-gold-dark" />
+                      </div>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="text-lg font-semibold text-navy">
+                  No shortcuts. No hype. Just real comfort.
+                </p>
+              </div>
+
+              {/* Visual */}
+              <div className="bg-white border-2 border-gold/20 rounded-3xl p-8 shadow-xl shadow-gold/5">
+                <div className="aspect-video bg-gradient-to-br from-navy/5 to-navy/10 rounded-2xl flex items-center justify-center">
+                  <div className="text-center px-6">
+                    <p className="text-2xl font-serif text-navy mb-4">
+                      &quot;The right mattress should feel incredible on day one — and still feel
+                      incredible years later.&quot;
+                    </p>
+                    <p className="text-sm text-gold-dark font-semibold">Sleep6</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 6: Designed for Real Life */}
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/10 blob-shape blur-3xl translate-x-1/3 -translate-y-1/3" />
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="inline-block bg-gold/15 text-gold-dark font-semibold px-4 py-1 rounded-full text-sm mb-6">
+                Designed for Real Life
+              </span>
+              <h2 className="text-3xl md:text-4xl font-serif text-navy mb-4">
+                Every Product Created with Care
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Whether it&apos;s our flagship Sleep6 mattress or Sleep6 Kids, every product is
+                created with care, safety, and long-term performance in mind.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              {designFocusItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="bg-white border-2 border-gold/20 rounded-3xl p-6 text-center shadow-lg shadow-gold/5"
+                >
+                  <div className="w-14 h-14 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="w-7 h-7 text-gold-dark" />
+                  </div>
+                  <h3 className="text-navy font-semibold">{item.label}</h3>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Link
+                href="/products"
+                className="inline-flex items-center gap-2 text-gold-dark hover:text-gold font-semibold transition-colors"
+              >
+                Explore our mattresses
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 7: Why Sleep6? */}
+        <section className="py-20 bg-navy/5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="inline-block bg-gold/15 text-gold-dark font-semibold px-4 py-1 rounded-full text-sm mb-6">
+                Why Sleep6?
+              </span>
+              <h2 className="text-3xl md:text-4xl font-serif text-navy mb-4">
+                There Are Dozens of Mattress Brands.
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Very few are built on simplicity and integrity.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Don't believe */}
+              <div className="bg-white border-2 border-gray-200 rounded-3xl p-8">
+                <h3 className="text-lg font-semibold text-gray-500 mb-6">We don&apos;t believe in</h3>
+                <ul className="space-y-4">
+                  {dontBelieve.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3 text-gray-500">
+                      <div className="flex-shrink-0 w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center mt-0.5">
+                        <X className="w-4 h-4 text-gray-400" />
+                      </div>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Do believe */}
+              <div className="bg-white border-2 border-gold/30 rounded-3xl p-8 shadow-lg shadow-gold/5">
+                <h3 className="text-lg font-semibold text-navy mb-6">We believe in</h3>
+                <ul className="space-y-4">
+                  {doBelieve.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3 text-navy">
+                      <div className="flex-shrink-0 w-6 h-6 bg-gold/20 rounded-full flex items-center justify-center mt-0.5">
+                        <Check className="w-4 h-4 text-gold-dark" />
+                      </div>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 8: Our Promise */}
         <section className="py-20 bg-white/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -257,7 +429,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Section 6: CTA */}
+        {/* Section 9: CTA */}
         <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-navy/5" />
           <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-gold/10 blob-shape blur-3xl -translate-x-1/2 -translate-y-1/2" />
@@ -265,11 +437,11 @@ export default function AboutPage() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-serif text-navy mb-6">
-                Ready to Get the Sleep You Deserve?
+                Ready to Sleep Better and Wake Up Stronger?
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Experience the luxury of a perfect mattress at a fraction of the traditional cost.
-                There is only one perfect mattress.
+                Experience real comfort without compromise. Find the mattress that&apos;s right for
+                you — or let us help you find it.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link

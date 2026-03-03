@@ -16,6 +16,14 @@ const bedTypes = [
     ),
   },
   {
+    name: 'Adjustable Base',
+    description: 'Fits any bed and its adjustable base',
+    icon: (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src="/images/products/adjustable bed.png" alt="Adjustable base" className="w-full h-full object-contain scale-[1.44]" />
+    ),
+  },
+  {
     name: 'Platform Bed',
     description: 'Low-profile frame, no box spring needed',
     icon: (
@@ -27,7 +35,7 @@ const bedTypes = [
 
 export default function FitsAnyBed() {
   return (
-    <section className="py-16 md:py-20 bg-[#f5f7f9]">
+    <section className="mt-4 py-16 md:py-20 bg-[#f5f7f9]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-12 md:mb-16">
@@ -40,7 +48,7 @@ export default function FitsAnyBed() {
         </div>
 
         {/* Bed type grid — 3 columns with generous spacing */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-20">
           {bedTypes.map((bed) => (
             <div key={bed.name} className="flex flex-col items-center text-center">
               {/* Icon container — consistent fixed height for all three */}

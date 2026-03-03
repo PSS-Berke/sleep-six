@@ -8,10 +8,10 @@ const flagship = {
   slug: 'dream',
   name: 'Sleep6 Dream',
   type: 'Hybrid',
-  tagline: 'Near-luxury performance within reach',
+  tagline: 'Engineered for luxury performance.',
   heroDescription:
     'Individually wrapped coils meet advanced foam layers for the kind of performance you expect from a luxury mattress — at a price that doesn\'t require compromise.',
-  layers: 5,
+  layers: 6,
   keyBenefit: 'Zero Motion Transfer',
   price: 1299,
   image: '/images/products/Dream/Dream Mattress photoshoot.png',
@@ -33,10 +33,10 @@ const supportingProducts = [
     slug: 'doze',
     name: 'Sleep6 Doze',
     type: 'Foam',
-    tagline: 'A noticeable upgrade in every way',
+    tagline: 'Plush comfort, built to last.',
     keyBenefit: 'Enhanced Comfort',
     price: 749,
-    image: '/images/products/Doze/Doze mattress photoshoot.png',
+    image: '/images/products/Doze/Untitled design (1).svg',
   },
   {
     id: 'hl-1',
@@ -44,7 +44,7 @@ const supportingProducts = [
     name: 'Sleep6 Nod',
     type: 'Foam',
     tagline: 'Dependable comfort, night after night',
-    keyBenefit: 'Essential Comfort',
+    keyBenefit: 'Built to Last',
     price: 549,
     image: '/images/products/Nod/nod photoshoot frong.png',
   },
@@ -145,11 +145,10 @@ export default function FeaturedProducts() {
                   className="object-cover"
                 />
 
-                {/* Type badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1.5 bg-white text-gold-dark text-xs font-medium rounded-full shadow-sm">
-                    {product.type}
-                  </span>
+                {/* Key benefit badge */}
+                <div className="absolute top-4 left-4 flex items-center gap-2 bg-white/90 px-3 py-1.5 rounded-full shadow-sm">
+                  <span className="w-1.5 h-1.5 bg-gold rounded-full" />
+                  <span className="text-xs font-medium text-gray-600">{product.keyBenefit}</span>
                 </div>
               </div>
 
@@ -159,12 +158,6 @@ export default function FeaturedProducts() {
                   {product.name}
                 </h3>
                 <p className="text-gray-500 text-sm mb-4 line-clamp-2">{product.tagline}</p>
-
-                {/* Key benefit */}
-                <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
-                  <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-                  <span>{product.keyBenefit}</span>
-                </div>
 
                 {/* Price and arrow */}
                 <div className="flex items-center justify-between">

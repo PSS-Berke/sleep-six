@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -23,8 +23,9 @@ export default function Hero() {
             </h1>
 
             <p className="text-xl text-gray-600 max-w-xl leading-relaxed">
-              25+ years of bedding expertise distilled into the 6 essential components
-              of the perfect mattress. Handcrafted in America, delivered directly to you.
+              We believe better sleep changes everything — your energy, your health, your
+              focus, your life. 25+ years of expertise, handcrafted in America, delivered
+              directly to you.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -47,15 +48,15 @@ export default function Hero() {
           {/* Visual */}
           <div className="relative">
             <div className="aspect-square bg-white/80 border-2 border-gold/20 rounded-3xl p-8 flex items-center justify-center shadow-xl shadow-gold/5">
-              {/* Placeholder for hero image */}
-              <div className="relative w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-gold/20 rounded-full flex items-center justify-center">
-                    <Play className="w-12 h-12 text-gold-dark" />
-                  </div>
-                  <p className="text-navy font-medium">Watch Our Story</p>
-                  <p className="text-sm text-gray-500">See how we craft your perfect mattress</p>
-                </div>
+              <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                <video
+                  src="/Videos/Untitled design (4).mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -65,7 +66,7 @@ export default function Hero() {
               <p className="text-xs text-gray-500">Flexible payment options</p>
             </div>
             <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg shadow-gold/10 p-4 hidden md:block border border-gold/10">
-              <p className="text-sm font-semibold text-navy">Up to 20 Year Warranty</p>
+              <p className="text-sm font-semibold text-navy">10 Year Warranty</p>
               <p className="text-xs text-gray-500">Built to last</p>
             </div>
           </div>

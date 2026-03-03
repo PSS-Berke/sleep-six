@@ -74,9 +74,11 @@ export default function TheDifference() {
         <div className="mt-12 text-center">
           <p className="text-lg text-gray-600 mb-6">
             Same luxury quality. <span className="font-semibold text-navy">A fraction of the price.</span>
+            <br />
+            <span className="text-navy font-semibold">No shortcuts. No hype. Just real comfort.</span>
           </p>
           <a
-            href="/products"
+            href="/home-line"
             className="inline-flex items-center gap-2 text-gold-dark hover:text-gold font-semibold transition-colors"
           >
             Learn more about our products

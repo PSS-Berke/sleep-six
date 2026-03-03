@@ -32,7 +32,7 @@ export default function SleepQuizCTA() {
               </li>
               <li className="flex items-center gap-3 text-gray-600">
                 <CheckCircle className="w-5 h-5 text-gold" />
-                <span>7 simple questions</span>
+                <span>6 simple questions</span>
               </li>
               <li className="flex items-center gap-3 text-gray-600">
                 <Sparkles className="w-5 h-5 text-gold" />
@@ -52,7 +52,7 @@ export default function SleepQuizCTA() {
             {/* Quiz preview cards */}
             <div className="space-y-4">
               <div className="bg-white border-2 border-gold/20 rounded-2xl p-6 shadow-lg shadow-gold/5 transform rotate-1">
-                <p className="text-sm text-gray-400 mb-2">Question 1 of 7</p>
+                <p className="text-sm text-gray-400 mb-2">Question 1 of 6</p>
                 <p className="font-semibold text-navy mb-4">What&apos;s your primary sleep position?</p>
                 <div className="grid grid-cols-3 gap-3">
                   {['Side', 'Back', 'Stomach'].map((pos) => (
@@ -64,7 +64,7 @@ export default function SleepQuizCTA() {
               </div>
 
               <div className="bg-white border-2 border-gold/20 rounded-2xl p-6 shadow-lg shadow-gold/5 transform -rotate-1 translate-x-4">
-                <p className="text-sm text-gray-400 mb-2">Question 3 of 7</p>
+                <p className="text-sm text-gray-400 mb-2">Question 3 of 6</p>
                 <p className="font-semibold text-navy mb-4">How firm do you like your mattress?</p>
                 <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                   <div className="h-full bg-gradient-to-r from-gold-light to-gold w-1/2 rounded-full" />
@@ -77,9 +77,9 @@ export default function SleepQuizCTA() {
 
               <div className="bg-gold/20 border-2 border-gold/30 rounded-2xl p-6 shadow-lg shadow-gold/5 transform rotate-2 -translate-x-2">
                 <p className="text-sm text-gold-dark/70 mb-2">Your Result</p>
-                <p className="font-bold text-navy text-lg mb-2">The American Classic</p>
+                <p className="font-bold text-navy text-lg mb-2">The Sleep6 Doze</p>
                 <p className="text-gray-600 text-sm">
-                  Based on your answers, this hybrid mattress is your perfect match.
+                  Based on your answers, this mattress is your perfect match.
                 </p>
               </div>
             </div>

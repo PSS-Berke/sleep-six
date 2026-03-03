@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Star, Info, ArrowRight } from 'lucide-react';
+import { Info, ArrowRight } from 'lucide-react';
 import type { Product, Size } from '@/data/products';
 import { useCart } from '@/contexts/CartContext';
 
@@ -50,22 +50,6 @@ export default function ProductInfo({ product }: ProductInfoProps) {
           The <span className="font-semibold">{product.name}</span>
         </h1>
         <p className="text-lg text-gray-500">{product.tagline}</p>
-      </div>
-
-      {/* Rating */}
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-1">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <Star
-              key={i}
-              className={`w-4 h-4 ${i <= Math.floor(product.rating) ? 'text-gold fill-gold' : 'text-gray-200'}`}
-            />
-          ))}
-        </div>
-        <span className="font-medium text-navy">{product.rating}</span>
-        <a href="#reviews" className="text-gray-400 hover:text-gold transition-colors font-light">
-          {product.reviewCount.toLocaleString()} reviews
-        </a>
       </div>
 
       {/* Price - Simplified */}
@@ -144,7 +128,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         </span>
         <span className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-          Up to 20 Year Warranty
+          10 Year Warranty
         </span>
       </div>
     </div>

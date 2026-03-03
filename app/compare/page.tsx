@@ -12,9 +12,9 @@ export const metadata = {
 // Key benefits for each product
 const keyBenefits: Record<string, string> = {
   nod: 'Dependable Comfort',
-  doze: 'Noticeable Upgrade',
+  doze: 'Plush Comfort, Built to Last.',
   slumber: 'Rich, Plush Experience',
-  dream: 'Near-Luxury Performance',
+  dream: 'Engineered for Luxury Performance.',
 };
 
 // Sort home line products by price (ascending), excluding crib
@@ -58,9 +58,9 @@ export default function ComparePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Scrollable container for mobile */}
           <div className="overflow-x-auto -mx-4 px-4 pb-4">
-            <div className="min-w-[1100px]">
+            <div className="min-w-[880px]">
               {/* Product Headers */}
-              <div className="grid grid-cols-5 gap-4 mb-8">
+              <div className="grid grid-cols-4 gap-4 mb-8">
                 {sortedProducts.map((product) => (
                   <div
                     key={product.id}
@@ -98,7 +98,7 @@ export default function ComparePage() {
                   <h4 className="text-sm text-gold-dark font-medium tracking-[0.15em] uppercase mb-6 text-center">
                     Construction
                   </h4>
-                  <div className="grid grid-cols-5 gap-4">
+                  <div className="grid grid-cols-4 gap-4">
                     {sortedProducts.map((product) => (
                       <div key={product.id} className="text-center">
                         <span className="text-3xl font-light text-navy">
@@ -115,7 +115,7 @@ export default function ComparePage() {
                   <h4 className="text-sm text-gold-dark font-medium tracking-[0.15em] uppercase mb-6 text-center">
                     Key Benefit
                   </h4>
-                  <div className="grid grid-cols-5 gap-4">
+                  <div className="grid grid-cols-4 gap-4">
                     {sortedProducts.map((product) => (
                       <div key={product.id} className="flex items-center justify-center gap-2">
                         <span className="w-2 h-2 bg-gold rounded-full flex-shrink-0" />
@@ -132,7 +132,7 @@ export default function ComparePage() {
                   <h4 className="text-sm text-gold-dark font-medium tracking-[0.15em] uppercase mb-6 text-center">
                     Best For
                   </h4>
-                  <div className="grid grid-cols-5 gap-4">
+                  <div className="grid grid-cols-4 gap-4">
                     {sortedProducts.map((product) => (
                       <div key={product.id} className="flex flex-wrap gap-2 justify-center">
                         {product.bestFor.slice(0, 3).map((tag) => (
@@ -153,7 +153,7 @@ export default function ComparePage() {
                   <h4 className="text-sm text-gold-dark font-medium tracking-[0.15em] uppercase mb-6 text-center">
                     Customer Rating
                   </h4>
-                  <div className="grid grid-cols-5 gap-4">
+                  <div className="grid grid-cols-4 gap-4">
                     {sortedProducts.map((product) => (
                       <div key={product.id} className="text-center">
                         <div className="flex justify-center gap-1 mb-2">
@@ -175,7 +175,7 @@ export default function ComparePage() {
 
                 {/* CTA Row */}
                 <div className="bg-white/80 rounded-3xl p-6 border-2 border-gold/10 shadow-sm">
-                  <div className="grid grid-cols-5 gap-4">
+                  <div className="grid grid-cols-4 gap-4">
                     {sortedProducts.map((product) => (
                       <Link
                         key={product.id}

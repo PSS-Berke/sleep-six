@@ -11,9 +11,9 @@ export const metadata = {
 
 const tierDescriptions: Record<string, string> = {
   nod: 'Dependable comfort',
-  doze: 'Noticeable upgrade',
+  doze: 'Plush comfort, built to last.',
   slumber: 'Rich, plush experience',
-  dream: 'Near-luxury performance',
+  dream: 'Engineered for luxury performance.',
 };
 
 const adultProducts = homeLineProducts.filter((p) => p.type !== 'Crib Mattress');
@@ -81,7 +81,7 @@ export default function HomeLinePage() {
             </span>
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-              Up to 20 Year Warranty
+              Up to 10 Year Warranty
             </span>
           </div>
         </div>
@@ -161,15 +161,15 @@ export default function HomeLinePage() {
 
           {/* Supporting Tiers */}
           {supportingProducts.length > 0 && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-3 gap-6">
               {supportingProducts.map((product) => (
                 <Link
                   key={product.id}
                   href={`/products/${product.slug}`}
-                  className="group relative bg-white/80 rounded-3xl overflow-hidden border-2 border-transparent hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 transition-all duration-500"
+                  className="group relative rounded-3xl overflow-hidden border-2 border-transparent hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 transition-all duration-500 min-h-[500px]"
                 >
-                  {/* Image Container */}
-                  <div className="relative aspect-[3/4] overflow-hidden">
+                  {/* Full-fill image */}
+                  <div className="absolute inset-0">
                     {product.images[0] ? (
                       <Image
                         src={product.images[0]}
@@ -182,28 +182,23 @@ export default function HomeLinePage() {
                         <span className="text-gray-300 text-sm">Image Coming Soon</span>
                       </div>
                     )}
-
-                    {/* Type badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1.5 bg-white text-gold-dark text-xs font-medium rounded-full shadow-sm">
-                        {product.type}
-                      </span>
-                    </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-navy mb-1 group-hover:text-gold-dark transition-colors duration-300">
+                  {/* Type badge */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="px-3 py-1.5 bg-white text-gold-dark text-xs font-medium rounded-full shadow-sm">
+                      {product.type}
+                    </span>
+                  </div>
+
+                  {/* Content overlay — gradient fade at bottom */}
+                  <div className="absolute bottom-0 inset-x-0 z-10 p-6 bg-gradient-to-t from-navy/80 via-navy/40 to-transparent">
+                    <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-gold transition-colors duration-300">
                       {product.name}
                     </h3>
                     <p className="text-gold-dark text-xs font-medium italic mb-2">{product.tierDescription}</p>
-                    <p className="text-gray-500 text-sm mb-4 line-clamp-2">
-                      {product.tagline}
-                    </p>
-
-                    {/* Price and arrow */}
                     <div className="flex items-center justify-between">
-                      <span className="text-lg font-medium text-navy">
+                      <span className="text-lg font-medium text-white">
                         From ${product.price.toLocaleString()}
                       </span>
                       <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-gold group-hover:translate-x-1 transition-all duration-300" />

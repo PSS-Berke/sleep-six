@@ -18,7 +18,7 @@ const trustItems = [
   },
   {
     icon: Shield,
-    title: 'Up to 20 Year Warranty',
+    title: '10 Year Warranty',
     description: 'We stand behind our craft',
   },
 ];

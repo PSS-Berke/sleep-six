@@ -44,7 +44,7 @@ const components = [
     icon: Zap,
     title: 'The Right Materials',
     description: 'Safe, certified, sustainable. You spend 8 hours a night on your mattress - know what\'s in it.',
-    detail: 'CertiPUR-US foams, OEKO-TEX fabrics, and absolutely zero fiberglass. Better materials, better sleep.',
+    detail: 'CertiPUR-US certified foams and absolutely zero fiberglass. Better materials, better sleep.',
   },
 ];
 
@@ -64,6 +64,9 @@ export default function SixComponents() {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             After 25 years in the industry, we identified exactly what makes a perfect mattress.
             No more, no less.
+          </p>
+          <p className="text-lg font-medium text-navy mt-3">
+            Sleep is not a luxury. It&apos;s a foundation.
           </p>
         </div>
 

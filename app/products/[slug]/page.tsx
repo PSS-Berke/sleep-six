@@ -7,6 +7,7 @@ import ImageGallery from '@/components/product/ImageGallery';
 import ProductInfo from '@/components/product/ProductInfo';
 import ProductTabs from '@/components/product/ProductTabs';
 import FitsAnyBed from '@/components/product/FitsAnyBed';
+import FAKMission from '@/components/product/FAKMission';
 import LayerSwitcher from '@/components/home/LayerSwitcher';
 import { Check } from 'lucide-react';
 
@@ -101,7 +102,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <FitsAnyBed />
       </section>
 
-      <LayerSwitcher />
+      {/* FAK Cosmos charity mission */}
+      {slug === 'fak-cosmos' && <FAKMission />}
+
+      <LayerSwitcher slug={slug} />
 
       {/* Customer Satisfaction Guarantee */}
       <section className="py-16 bg-[#faf8f5] relative z-10">
@@ -116,7 +120,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <ul className="max-w-md mx-auto space-y-3">
               {[
                 '100% fiberglass-free construction',
-                'Up to 20 year warranty coverage',
+                ['nod', 'doze', 'slumber', 'dream'].includes(product.slug) ? '10-year non-prorated warranty' : 'Up to 20 year warranty coverage',
                 'Ships to all 50 states',
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-gray-700">

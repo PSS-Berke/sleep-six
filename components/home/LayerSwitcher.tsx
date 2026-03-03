@@ -1,111 +1,30 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Layers, Move, Wind, Shield, Sparkles } from 'lucide-react';
-
-// ─── Types ───────────────────────────────────────────────────────────────────
-
-type Layer = {
-  id: number;
-  number: string;
-  title: string;
-  subtitle: string;
-  body: string;
-  stat: string;
-  statLabel: string;
-  bgColor: string;
-  accentColor: string;
-  svgAccent: string;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
-};
-
-// ─── Layer Data ───────────────────────────────────────────────────────────────
-
-const LAYERS: Layer[] = [
-  {
-    id: 1,
-    number: '01',
-    title: 'Premium Surface',
-    subtitle: 'Hand-Finished Sleep Surface',
-    body: 'A hand-tufted cover using OEKO-TEX certified natural materials provides immediate softness without chemical off-gassing. The tactile quality at the surface signals everything beneath it was made with equal care and intention.',
-    stat: '100%',
-    statLabel: 'fiberglass free, certified safe',
-    bgColor: '#16243e',
-    accentColor: '#F7B94D',
-    svgAccent: '#F7B94D',
-    icon: Sparkles,
-  },
-  {
-    id: 2,
-    number: '02',
-    title: 'Lumbar Support',
-    subtitle: 'Targeted Spinal Alignment',
-    body: 'The lumbar zone is the most structurally critical region of the spine during sleep. A reinforced transitional layer provides targeted resistance under the lower back, maintaining the natural S-curve and eliminating morning stiffness.',
-    stat: '33',
-    statLabel: 'vertebrae supported',
-    bgColor: '#121e34',
-    accentColor: '#F3A51D',
-    svgAccent: '#F3A51D',
-    icon: Shield,
-  },
-  {
-    id: 3,
-    number: '03',
-    title: 'Temperature Regulation',
-    subtitle: 'Active Cooling Technology',
-    body: 'Your core body temperature must drop 1–2°F to initiate deep sleep. Gel-infused and open-cell foam layers actively wick heat away, maintaining the optimal sleep temperature throughout the night without chemical treatments.',
-    stat: '65–68°F',
-    statLabel: 'optimal sleep temperature',
-    bgColor: '#0c1e28',
-    accentColor: '#3E9EB7',
-    svgAccent: '#3E9EB7',
-    icon: Wind,
-  },
-  {
-    id: 4,
-    number: '04',
-    title: 'Pressure Relief',
-    subtitle: 'Zoned Comfort Layer',
-    body: 'Zoned pressure relief maps to your body\'s specific pressure points — shoulders, hips, and lumbar — with varying densities. Side sleepers gain cushioning where they need it most. Back sleepers receive firm reinforcement at the lumbar zone.',
-    stat: '36',
-    statLabel: 'pressure points addressed',
-    bgColor: '#101c30',
-    accentColor: '#5CBBD4',
-    svgAccent: '#5CBBD4',
-    icon: Move,
-  },
-  {
-    id: 5,
-    number: '05',
-    title: 'Deep Sleep Foundation',
-    subtitle: 'High-Density Support Core',
-    body: 'The foundation layer is where structural integrity begins. A precision-calibrated high-density foam or individually-wrapped coil system distributes body weight evenly, preventing the "hammock effect" that gradually misaligns the spine.',
-    stat: '8"',
-    statLabel: 'of engineered support',
-    bgColor: '#0e1a2a',
-    accentColor: '#3776BB',
-    svgAccent: '#3776BB',
-    icon: Layers,
-  },
-];
-
-// ─── SVG Layer Heights (top to bottom: surface is thinnest, foundation is tallest) ──
-
-const SVG_LAYER_HEIGHTS = [28, 38, 48, 58, 88]; // px — Surface → Foundation
-const SVG_LAYER_LABELS = ['Surface', 'Lumbar', 'Cooling', 'Comfort', 'Foundation'];
+import { getMattressLayerConfig, type MattressLayer } from '@/data/mattress-layers';
 
 // ─── Sub-Components ───────────────────────────────────────────────────────────
 
-function LayerVisualization({ activeIndex }: { activeIndex: number }) {
-  const layer = LAYERS[activeIndex];
+function LayerVisualization({
+  activeIndex,
+  layers,
+  svgHeights,
+  svgLabels,
+}: {
+  activeIndex: number;
+  layers: MattressLayer[];
+  svgHeights: number[];
+  svgLabels: string[];
+}) {
+  const layer = layers[activeIndex];
 
-  // Compute y positions bottom-to-top with 5px gaps
+  // Compute y positions top-to-bottom with 5px gaps
   const GAP = 5;
   const yPositions: number[] = [];
   let currentY = 0;
-  for (let i = 0; i < SVG_LAYER_HEIGHTS.length; i++) {
+  for (let i = 0; i < svgHeights.length; i++) {
     yPositions[i] = currentY;
-    currentY += SVG_LAYER_HEIGHTS[i] + GAP;
+    currentY += svgHeights[i] + GAP;
   }
   const totalHeight = currentY - GAP;
 
@@ -131,11 +50,11 @@ function LayerVisualization({ activeIndex }: { activeIndex: number }) {
           role="img"
           aria-label={`Mattress layer diagram — ${layer.title} highlighted`}
         >
-          {/* Render layers top-to-bottom in SVG (index 0 = surface = top of mattress) */}
-          {SVG_LAYER_HEIGHTS.map((height, idx) => {
+          {/* Render layers top-to-bottom */}
+          {svgHeights.map((height, idx) => {
             const y = yPositions[idx];
             const isActive = idx === activeIndex;
-            const layerData = LAYERS[idx];
+            const layerData = layers[idx];
 
             return (
               <g key={idx}>
@@ -157,23 +76,23 @@ function LayerVisualization({ activeIndex }: { activeIndex: number }) {
                 <text
                   x="20"
                   y={y + height / 2 + 5}
-                  fill="white"
+                  fill={isActive && idx === 0 ? '#1a1e24' : 'white'}
                   fontSize="11"
                   fontFamily="inherit"
                   letterSpacing="2"
                   style={{
-                    opacity: isActive ? 0.9 : 0,
+                    opacity: isActive ? 0.9 : 0.15,
                     transition: 'opacity 500ms cubic-bezier(0.4,0,0.2,1)',
                     textTransform: 'uppercase',
                   }}
                 >
-                  {SVG_LAYER_LABELS[idx]}
+                  {svgLabels[idx]}
                 </text>
               </g>
             );
           })}
 
-          {/* Surface stitch detail — sits just above the top slab */}
+          {/* Surface stitch detail */}
           <path
             d="M 10 4 Q 50 0 90 4 Q 130 8 170 4 Q 210 0 250 4 Q 290 8 310 4"
             stroke="rgba(255,255,255,0.2)"
@@ -208,7 +127,7 @@ function LayerVisualization({ activeIndex }: { activeIndex: number }) {
   );
 }
 
-function ContentInner({ layer }: { layer: Layer }) {
+function ContentInner({ layer }: { layer: MattressLayer }) {
   const Icon = layer.icon;
   return (
     <div className="space-y-6 px-4 lg:px-0">
@@ -262,11 +181,17 @@ function ContentInner({ layer }: { layer: Layer }) {
   );
 }
 
-function LayerContent({ activeIndex }: { activeIndex: number }) {
+function LayerContent({
+  activeIndex,
+  layers,
+}: {
+  activeIndex: number;
+  layers: MattressLayer[];
+}) {
   return (
     <div className="relative h-full flex flex-col justify-center">
       <div className="relative" style={{ minHeight: '320px' }}>
-        {LAYERS.map((layer, idx) => {
+        {layers.map((layer, idx) => {
           const isActive = idx === activeIndex;
           const isPast = idx < activeIndex;
 
@@ -290,9 +215,9 @@ function LayerContent({ activeIndex }: { activeIndex: number }) {
             </div>
           );
         })}
-        {/* Invisible spacer to give the container a defined height */}
+        {/* Invisible spacer */}
         <div className="invisible pointer-events-none">
-          <ContentInner layer={LAYERS[0]} />
+          <ContentInner layer={layers[0]} />
         </div>
       </div>
     </div>
@@ -303,16 +228,17 @@ function ProgressDots({
   activeIndex,
   onDotClick,
   isMobile,
+  layers,
 }: {
   activeIndex: number;
   onDotClick: (index: number) => void;
   isMobile: boolean;
+  layers: MattressLayer[];
 }) {
   if (isMobile) {
-    // Horizontal dots at bottom center on mobile
     return (
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-row gap-3 z-20">
-        {LAYERS.map((layer, idx) => {
+        {layers.map((layer, idx) => {
           const isActive = idx === activeIndex;
           return (
             <button
@@ -328,7 +254,7 @@ function ProgressDots({
                   height: isActive ? '10px' : '6px',
                   borderRadius: '50%',
                   backgroundColor: isActive
-                    ? LAYERS[activeIndex].accentColor
+                    ? layers[activeIndex].accentColor
                     : 'rgba(255,255,255,0.3)',
                   transition: 'all 500ms cubic-bezier(0.4,0,0.2,1)',
                 }}
@@ -340,10 +266,9 @@ function ProgressDots({
     );
   }
 
-  // Vertical dots on right edge on desktop
   return (
     <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-20">
-      {LAYERS.map((layer, idx) => {
+      {layers.map((layer, idx) => {
         const isActive = idx === activeIndex;
         return (
           <button
@@ -352,7 +277,6 @@ function ProgressDots({
             aria-label={`Jump to layer ${idx + 1}: ${layer.title}`}
             className="group flex items-center gap-3 justify-end"
           >
-            {/* Hover label */}
             <span
               className="font-sans text-xs whitespace-nowrap"
               style={{
@@ -365,14 +289,13 @@ function ProgressDots({
             >
               {layer.title}
             </span>
-            {/* Dot */}
             <div
               style={{
                 width: isActive ? '10px' : '6px',
                 height: isActive ? '10px' : '6px',
                 borderRadius: '50%',
                 backgroundColor: isActive
-                  ? LAYERS[activeIndex].accentColor
+                  ? layers[activeIndex].accentColor
                   : 'rgba(255,255,255,0.3)',
                 transition: 'all 500ms cubic-bezier(0.4,0,0.2,1)',
                 flexShrink: 0,
@@ -385,7 +308,15 @@ function ProgressDots({
   );
 }
 
-function SectionHeader({ activeIndex }: { activeIndex: number }) {
+function SectionHeader({
+  activeIndex,
+  sectionLabel,
+  sectionSubtitle,
+}: {
+  activeIndex: number;
+  sectionLabel?: string;
+  sectionSubtitle?: string;
+}) {
   return (
     <div
       className="absolute top-8 left-0 right-0 px-6 lg:px-16 pointer-events-none"
@@ -398,13 +329,13 @@ function SectionHeader({ activeIndex }: { activeIndex: number }) {
         className="inline-block font-sans text-xs tracking-[0.35em] uppercase mb-1"
         style={{ color: 'rgba(243,165,29,0.7)' }}
       >
-        The Science of Sleep
+        {sectionLabel ?? 'The Science of Sleep'}
       </span>
       <p
         className="font-sans text-sm"
         style={{ color: 'rgba(255,255,255,0.35)' }}
       >
-        Scroll to dig deeper
+        {sectionSubtitle ?? 'Scroll to dig deeper'}
       </p>
     </div>
   );
@@ -412,14 +343,16 @@ function SectionHeader({ activeIndex }: { activeIndex: number }) {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export default function LayerSwitcher() {
+export default function LayerSwitcher({ slug }: { slug?: string }) {
+  const config = getMattressLayerConfig(slug);
+  const { layers, svgHeights, svgLabels, sectionLabel, sectionSubtitle } = config;
+
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const isScrollingRef = useRef(false);
 
   useEffect(() => {
-    // Detect mobile after mount to avoid hydration mismatch
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -438,20 +371,19 @@ export default function LayerSwitcher() {
         const totalScrollable = rect.height - window.innerHeight;
         if (totalScrollable <= 0) return;
         const progress = Math.max(0, Math.min(1, scrolled / totalScrollable));
-        const newIndex = Math.round(progress * (LAYERS.length - 1));
+        const newIndex = Math.round(progress * (layers.length - 1));
         setActiveIndex(newIndex);
       });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // Run once on mount to set correct initial state
     handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [layers.length]);
 
   const handleDotClick = (index: number) => {
     if (isScrollingRef.current || !sectionRef.current) return;
@@ -459,7 +391,7 @@ export default function LayerSwitcher() {
 
     const sectionTop = sectionRef.current.offsetTop;
     const totalScrollable = sectionRef.current.offsetHeight - window.innerHeight;
-    const target = sectionTop + (index / (LAYERS.length - 1)) * totalScrollable;
+    const target = sectionTop + (index / (layers.length - 1)) * totalScrollable;
 
     window.scrollTo({ top: target, behavior: 'smooth' });
     setTimeout(() => {
@@ -467,16 +399,15 @@ export default function LayerSwitcher() {
     }, 1000);
   };
 
-  const activeLayer = LAYERS[activeIndex];
-  // 100vh per layer; slightly shorter on mobile (80vh per layer)
-  const sectionHeight = isMobile ? LAYERS.length * 80 : LAYERS.length * 100;
+  const activeLayer = layers[activeIndex];
+  const sectionHeight = isMobile ? layers.length * 80 : layers.length * 100;
 
   return (
     <section
       ref={sectionRef}
       className="relative"
       style={{ height: `${sectionHeight}vh` }}
-      aria-label="Explore the 5 Sleep6 mattress layers"
+      aria-label={`Explore the ${layers.length} mattress layers`}
     >
       {/* Sticky viewport panel */}
       <div className="sticky top-0 overflow-hidden" style={{ height: '100vh' }}>
@@ -489,7 +420,7 @@ export default function LayerSwitcher() {
           }}
         />
 
-        {/* Subtle top vignette for depth */}
+        {/* Subtle top vignette */}
         <div
           className="absolute inset-x-0 top-0 h-32 pointer-events-none z-10"
           style={{
@@ -515,7 +446,12 @@ export default function LayerSwitcher() {
               overflow: 'hidden',
             }}
           >
-            <LayerVisualization activeIndex={activeIndex} />
+            <LayerVisualization
+              activeIndex={activeIndex}
+              layers={layers}
+              svgHeights={svgHeights}
+              svgLabels={svgLabels}
+            />
           </div>
 
           {/* Right / Bottom: Text Content */}
@@ -523,18 +459,23 @@ export default function LayerSwitcher() {
             aria-live="polite"
             style={{ order: isMobile ? 2 : 1 }}
           >
-            <LayerContent activeIndex={activeIndex} />
+            <LayerContent activeIndex={activeIndex} layers={layers} />
           </div>
         </div>
 
         {/* Section header */}
-        <SectionHeader activeIndex={activeIndex} />
+        <SectionHeader
+          activeIndex={activeIndex}
+          sectionLabel={sectionLabel}
+          sectionSubtitle={sectionSubtitle}
+        />
 
         {/* Progress dots */}
         <ProgressDots
           activeIndex={activeIndex}
           onDotClick={handleDotClick}
           isMobile={isMobile}
+          layers={layers}
         />
       </div>
     </section>

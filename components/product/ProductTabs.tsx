@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Check, MapPin, Package, Truck, Home } from 'lucide-react';
+import { Check, Package, Truck, Home } from 'lucide-react';
 import type { Product } from '@/data/products';
 
 interface ProductTabsProps {
@@ -112,27 +112,70 @@ export default function ProductTabs({ product }: ProductTabsProps) {
                       {material.certification}
                     </span>
                   </div>
-                  <p className="text-gray-600 text-sm mb-4">{material.description}</p>
-                  <div className="flex items-center gap-2 text-sm text-gray-400">
-                    <MapPin className="w-4 h-4 text-gold" />
-                    <span>{material.source}</span>
-                  </div>
+                  <p className="text-gray-600 text-sm">{material.description}</p>
                 </div>
               ))}
             </div>
 
-            <div className="bg-gold/10 rounded-3xl p-8 text-center border-2 border-gold/20">
-              <h4 className="font-semibold text-navy mb-4">Our Certifications</h4>
-              <div className="flex flex-wrap justify-center gap-3">
-                {['CertiPUR-US', 'GREENGUARD Gold', 'OEKO-TEX', 'GOTS Organic'].map((cert) => (
-                  <span
-                    key={cert}
-                    className="bg-white border-2 border-gold/10 px-4 py-2 rounded-full text-sm text-gray-600"
-                  >
-                    {cert}
-                  </span>
-                ))}
-              </div>
+            <div className="bg-gold/10 rounded-3xl p-8 border-2 border-gold/20">
+              <h4 className="font-semibold text-navy text-center mb-8">Firmness Scale</h4>
+              {(() => {
+                const scale = ['XFirm', 'Firm', 'Medium', 'Plush', 'XPlush'];
+                const activeIdx = scale.findIndex(
+                  (s) => s.toLowerCase() === product.selectedFirmness.toLowerCase()
+                );
+                const markerPct = (activeIdx / (scale.length - 1)) * 100;
+                return (
+                  <div className="max-w-lg mx-auto">
+                    {/* Track */}
+                    <div className="relative flex items-center mb-2" style={{ height: '32px' }}>
+                      {/* Background track */}
+                      <div className="absolute inset-x-0 h-1.5 rounded-full bg-gold/20" style={{ top: '50%', transform: 'translateY(-50%)' }} />
+                      {/* Filled portion up to marker */}
+                      <div
+                        className="absolute h-1.5 rounded-full bg-gold"
+                        style={{ left: 0, width: `${markerPct}%`, top: '50%', transform: 'translateY(-50%)' }}
+                      />
+                      {/* Tick dots */}
+                      <div className="relative flex justify-between w-full" style={{ top: '50%', transform: 'translateY(-50%)' }}>
+                        {scale.map((level) => (
+                          <div
+                            key={level}
+                            className="w-2 h-2 rounded-full bg-gold/30 border border-gold/40"
+                          />
+                        ))}
+                      </div>
+                      {/* Floating marker */}
+                      <div
+                        className="absolute flex flex-col items-center"
+                        style={{ left: `${markerPct}%`, top: '50%', transform: 'translate(-50%, -50%)' }}
+                      >
+                        <div className="w-4 h-4 rounded-full bg-gold border-2 border-white shadow-md shadow-gold/40" />
+                      </div>
+                    </div>
+                    {/* Labels */}
+                    <div className="flex justify-between mt-3">
+                      {scale.map((level, i) => {
+                        const isActive = i === activeIdx;
+                        return (
+                          <span
+                            key={level}
+                            className={`text-xs text-center leading-tight ${
+                              isActive ? 'text-gold-dark font-semibold' : 'text-gray-400'
+                            }`}
+                            style={{ width: '20%' }}
+                          >
+                            {level}
+                          </span>
+                        );
+                      })}
+                    </div>
+                    <p className="text-center text-sm text-gray-500 mt-6">
+                      This mattress is rated <span className="text-gold-dark font-medium">{product.selectedFirmness}</span>
+                    </p>
+                  </div>
+                );
+              })()}
             </div>
           </div>
         )}
