@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { CartProvider } from "@/contexts/CartContext";
 import CartDrawer from "@/components/cart/CartDrawer";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 
 const lato = Lato({
   variable: "--font-lato",
@@ -48,6 +49,7 @@ export default function RootLayout({
         {/* Quilted wave pattern overlay */}
         <div className="quilted-wave-overlay" aria-hidden="true" />
         <CartProvider>
+          <ScrollToTop />
           <Header />
           <main>{children}</main>
           <Footer />

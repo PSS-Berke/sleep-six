@@ -141,6 +141,10 @@ export default function CartPage() {
                   </span>
                   <span className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 bg-gold rounded-full" />
+                    Free Returns
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 bg-gold rounded-full" />
                     Secure Checkout
                   </span>
                   <span className="flex items-center gap-1">

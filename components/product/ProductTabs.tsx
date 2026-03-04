@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Check, Package, Truck, Home } from 'lucide-react';
+import { Check, Package, Truck, Home, Moon } from 'lucide-react';
 import type { Product } from '@/data/products';
 
 interface ProductTabsProps {
@@ -191,7 +191,7 @@ export default function ProductTabs({ product }: ProductTabsProps) {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-4 gap-8">
               {[
                 {
                   icon: Package,
@@ -207,6 +207,11 @@ export default function ProductTabs({ product }: ProductTabsProps) {
                   icon: Home,
                   title: 'Unbox & Expand',
                   desc: 'Unroll in your room and it expands to full size within hours',
+                },
+                {
+                  icon: Moon,
+                  title: '100 Night Guarantee',
+                  desc: 'Sleep on it risk-free for 100 nights',
                 },
               ].map((step, i) => (
                 <div

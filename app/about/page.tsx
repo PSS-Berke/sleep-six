@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ArrowRight,
   Users,
@@ -150,10 +151,13 @@ export default function AboutPage() {
               {/* Image grid */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="aspect-[4/3] bg-gray-100 rounded-3xl overflow-hidden">
-                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                      <span className="text-gray-400 text-sm">Our Team</span>
-                    </div>
+                  <div className="aspect-[4/3] bg-gray-100 rounded-3xl overflow-hidden relative">
+                    <Image
+                      src="/images/team/tag city corner.jpg"
+                      alt="Factory team"
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <div className="aspect-square bg-gold/20 border-2 border-gold/30 rounded-3xl p-6 flex flex-col justify-center">
                     <p className="text-4xl font-bold text-gold-dark mb-2">25+</p>
@@ -161,15 +165,21 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="space-y-4 pt-8">
-                  <div className="aspect-square bg-gray-100 rounded-3xl overflow-hidden">
-                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                      <span className="text-gray-400 text-sm">Craftsman at Work</span>
-                    </div>
+                  <div className="aspect-square bg-gray-100 rounded-3xl overflow-hidden relative">
+                    <Image
+                      src="/images/team/girl with foot on box.png"
+                      alt="Fancy interior"
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  <div className="aspect-[4/3] bg-gray-100 rounded-3xl overflow-hidden">
-                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                      <span className="text-gray-400 text-sm">Our Factory</span>
-                    </div>
+                  <div className="aspect-[4/3] bg-gray-100 rounded-3xl overflow-hidden relative">
+                    <Image
+                      src="/images/team/mattress factory.jpeg"
+                      alt="Craftsman at work"
+                      fill
+                      className="object-cover object-left scale-[1.25] origin-left"
+                    />
                   </div>
                 </div>
               </div>
@@ -233,16 +243,15 @@ export default function AboutPage() {
                 </blockquote>
               </div>
 
-              {/* Founder image placeholder */}
+              {/* Founder image */}
               <div className="bg-white border-2 border-gold/20 rounded-3xl p-8 shadow-xl shadow-gold/5">
-                <div className="aspect-[3/4] bg-gradient-to-br from-gold/20 to-gold/5 rounded-2xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 mx-auto mb-4 bg-gold/30 rounded-full flex items-center justify-center">
-                      <Users className="w-10 h-10 text-gold-dark" />
-                    </div>
-                    <p className="text-navy font-medium">Robert Taglianetti</p>
-                    <p className="text-sm text-gray-500">Founder, Sleep6</p>
-                  </div>
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden relative">
+                  <Image
+                    src="/images/team/tag touching on mattress.jpg"
+                    alt="Robert Taglianetti, Founder of Sleep6"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -317,8 +326,8 @@ export default function AboutPage() {
                 Every Product Created with Care
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Whether it&apos;s our flagship Sleep6 mattress or Sleep6 Kids, every product is
-                created with care, safety, and long-term performance in mind.
+                Every Sleep6 product — from the Nod to the Dream — is made with the same
+                commitment to quality, safety, and sleep that holds up over time.
               </p>
             </div>
 
@@ -338,7 +347,7 @@ export default function AboutPage() {
 
             <div className="text-center">
               <Link
-                href="/products"
+                href="/home-line"
                 className="inline-flex items-center gap-2 text-gold-dark hover:text-gold font-semibold transition-colors"
               >
                 Explore our mattresses

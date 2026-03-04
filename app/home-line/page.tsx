@@ -73,11 +73,19 @@ export default function HomeLinePage() {
             </span>
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-              Financing Available
+              Free Delivery
             </span>
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-              Free Delivery
+              Free Returns
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-gold rounded-full" />
+              100 Night Guarantee
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-gold rounded-full" />
+              Financing Available
             </span>
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-gold rounded-full" />

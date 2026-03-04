@@ -90,6 +90,12 @@ export default function Header() {
               About Us
             </Link>
             <Link
+              href="/faq"
+              className="text-gray-700 hover:text-navy font-medium transition-colors"
+            >
+              FAQ
+            </Link>
+            <Link
               href="/quiz"
               className="text-gray-700 hover:text-navy font-medium transition-colors"
             >
@@ -150,6 +156,13 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About Us
+              </Link>
+              <Link
+                href="/faq"
+                className="block text-gray-700 hover:text-navy font-medium transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                FAQ
               </Link>
               <Link
                 href="/quiz"

@@ -566,13 +566,12 @@ export const homeLineProducts: Product[] = [
     ],
     sizes: [
       { name: 'Standard Crib', dimensions: '28" x 52"', price: 179, inStock: true },
-      { name: 'Mini Crib', dimensions: '24" x 38"', price: 149, inStock: true },
     ],
     firmness: [
       { level: 'Infant Firm', description: 'AAP-recommended firm surface for safe infant sleep', recommended: ['Newborns', 'Infants'] },
       { level: 'Toddler', description: 'Slightly softer feel for toddlers transitioning from crib to bed', recommended: ['Toddlers 18 months+'] },
     ],
-    selectedFirmness: 'Infant Firm',
+    selectedFirmness: 'Plush',
     features: [
       'Dual-sided: Infant firm / Toddler comfort',
       '100% Fiber Glass Free',

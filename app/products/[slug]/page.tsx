@@ -7,6 +7,7 @@ import ImageGallery from '@/components/product/ImageGallery';
 import ProductInfo from '@/components/product/ProductInfo';
 import ProductTabs from '@/components/product/ProductTabs';
 import FitsAnyBed from '@/components/product/FitsAnyBed';
+import FitsAnyCrib from '@/components/product/FitsAnyCrib';
 import FAKMission from '@/components/product/FAKMission';
 import LayerSwitcher from '@/components/home/LayerSwitcher';
 import { Check } from 'lucide-react';
@@ -98,8 +99,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
         {/* Tabs section */}
         <ProductTabs product={product} />
 
-        {/* Fits any bed section */}
-        <FitsAnyBed />
+        {/* Fits any bed / crib section */}
+        {slug === 'nest' ? <FitsAnyCrib /> : <FitsAnyBed />}
       </section>
 
       {/* FAK Cosmos charity mission */}
