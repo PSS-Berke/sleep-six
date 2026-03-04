@@ -121,7 +121,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <ul className="max-w-md mx-auto space-y-3">
               {[
                 '100% fiberglass-free construction',
-                ['nod', 'doze', 'slumber', 'dream'].includes(product.slug) ? '10-year non-prorated warranty' : 'Up to 20 year warranty coverage',
+                '10-year warranty',
                 'Ships to all 50 states',
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-gray-700">
