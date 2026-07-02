@@ -14,7 +14,7 @@ const flagship = {
   layers: 6,
   keyBenefit: 'Zero Motion Transfer',
   price: 1299,
-  image: '/images/products/Dream/Dream Mattress photoshoot.png',
+  image: '/images/products/Dream/dream.svg',
 };
 
 const supportingProducts = [
@@ -26,7 +26,7 @@ const supportingProducts = [
     tagline: 'Rich, plush comfort that envelops you',
     keyBenefit: 'Deep Pressure Relief',
     price: 999,
-    image: '/images/products/Slumber/slumber mattress photoshoot.png',
+    image: '/images/products/Slumber/slumber.svg',
   },
   {
     id: 'hl-2',
@@ -36,7 +36,7 @@ const supportingProducts = [
     tagline: 'Plush comfort, built to last.',
     keyBenefit: 'Enhanced Comfort',
     price: 749,
-    image: '/images/products/Doze/Untitled design (1).svg',
+    image: '/images/products/Doze/doze.svg',
   },
   {
     id: 'hl-1',
@@ -46,7 +46,7 @@ const supportingProducts = [
     tagline: 'Dependable comfort, night after night',
     keyBenefit: 'Built to Last',
     price: 549,
-    image: '/images/products/Nod/nod photoshoot frong.png',
+    image: '/images/products/Nod/nod.svg',
   },
 ];
 

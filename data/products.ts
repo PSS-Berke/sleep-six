@@ -277,7 +277,7 @@ export const products: Product[] = [
     type: 'Luxury Hybrid',
     tagline: 'The absolute premium sleep experience',
     description: 'The Insatiable is for those who refuse to compromise. Our most advanced construction — combining premium natural materials, a cooling gel system, and a precision pocketed coil core — delivers a sleep experience so complete, nothing else will do.',
-    price: 1799,
+    price: 3699,
     originalPrice: 3598,
     rating: 4.9,
     reviewCount: 0,
@@ -289,8 +289,8 @@ export const products: Product[] = [
       { name: 'Twin', dimensions: '38" x 75"', price: 1349, inStock: true },
       { name: 'Twin XL', dimensions: '38" x 80"', price: 1449, inStock: true },
       { name: 'Full', dimensions: '54" x 75"', price: 1649, inStock: true },
-      { name: 'Queen', dimensions: '60" x 80"', price: 1799, inStock: true },
-      { name: 'King', dimensions: '76" x 80"', price: 2199, inStock: true },    ],
+      { name: 'Queen', dimensions: '60" x 80"', price: 3699, inStock: true },
+      { name: 'King', dimensions: '76" x 80"', price: 4199, inStock: true },    ],
     firmness: [
       { level: 'Soft', description: 'Ultimate plush luxury with full coil support', recommended: ['Side sleepers', 'Lighter body types'] },
       { level: 'Medium', description: 'The perfect balance of luxury and support', recommended: ['All sleep positions', 'Couples'] },
@@ -341,9 +341,8 @@ export const homeLineProducts: Product[] = [
     rating: 4.7,
     reviewCount: 0,
     images: [
-      '/images/products/Nod/nod photoshoot frong.png',
-      '/images/products/Nod/nod matress.png',
-      '/images/products/Nod/nod with a model.png',
+      '/images/products/Nod/nod.svg',
+      '/images/products/Nod/nod-room.png',
     ],
     sizes: [
       { name: 'Twin', dimensions: '38" x 75"', price: 399, inStock: true },
@@ -393,9 +392,8 @@ export const homeLineProducts: Product[] = [
     rating: 4.8,
     reviewCount: 0,
     images: [
-      '/images/products/Doze/Untitled design (1).svg',
-      '/images/products/Doze/Doze product shot.png',
-      '/images/products/Doze/please-check-the-models-face-and-eyes-and-make-sur.png',
+      '/images/products/Doze/doze.svg',
+      '/images/products/Doze/doze-room.png',
     ],
     sizes: [
       { name: 'Twin', dimensions: '38" x 75"', price: 549, inStock: true },
@@ -447,9 +445,8 @@ export const homeLineProducts: Product[] = [
     rating: 4.8,
     reviewCount: 0,
     images: [
-      '/images/products/Slumber/Untitled design (2).svg',
-      '/images/products/Slumber/Slumber product shot.png',
-      '/images/products/Slumber/Slumber model shoot.png',
+      '/images/products/Slumber/slumber.svg',
+      '/images/products/Slumber/slumber-room.png',
     ],
     sizes: [
       { name: 'Twin', dimensions: '38" x 75"', price: 749, inStock: true },
@@ -503,9 +500,8 @@ export const homeLineProducts: Product[] = [
     rating: 4.9,
     reviewCount: 0,
     images: [
-      '/images/products/Dream/new dream mattress photoshoot.svg',
-      '/images/products/Dream/Dream product shot.png',
-      '/images/products/Dream/dream with model.png',
+      '/images/products/Dream/dream.svg',
+      '/images/products/Dream/dream-room.png',
     ],
     sizes: [
       { name: 'Twin', dimensions: '38" x 75"', price: 999, inStock: true },
