@@ -13,7 +13,7 @@ export default function WarrantyPage() {
 
         <section className="mb-8">
           <p className="text-gray-700 leading-relaxed mb-4">
-            Thank you for purchasing your new Sleep6 mattress. The Sleep6 mattress comes with a ten-year warranty which gives you certain legal rights in regard to the mattress. You may also have additional legal rights depending on which state you reside in. The limited warranty extends to mattresses manufactured by Sleep6, LLC that are purchased directly from Sleep6. The warranty specifically excludes any mattress purchased on a secondary market and/or resold by an unauthorized individual or company. The Sleep6 mattress is designed for sleep and the Sleep6, LLC warranty only applies to those consumers who use the mattress for its intended purpose. The mattress is intended to be used by the user(s) for sleep only and the mattress is designed to lay on a firm and/or hard surface such as a floor, box spring, platform bed, or any other surface that is designed and capable of supporting the weight of the mattress and its user(s). The limited warranty will not apply if the user(s) decides to use the mattress for a purpose other than that described herein or for a purpose not intended by Sleep6, LLC. The mattress is specifically designed for sleep and should be used accordingly.
+            Thank you for purchasing your new Sleep6 mattress. The Sleep6 mattress comes with a ten-year warranty which gives you certain legal rights in regard to the mattress. You may also have additional legal rights depending on which state you reside in. The limited warranty extends to mattresses manufactured by Sleep6, LLC that are purchased new from Sleep6 or from an authorized Sleep6 retailer, such as Abt. The warranty specifically excludes any mattress purchased on a secondary market and/or resold by an unauthorized individual or company. The Sleep6 mattress is designed for sleep and the Sleep6, LLC warranty only applies to those consumers who use the mattress for its intended purpose. The mattress is intended to be used by the user(s) for sleep only and the mattress is designed to lay on a firm and/or hard surface such as a floor, box spring, platform bed, or any other surface that is designed and capable of supporting the weight of the mattress and its user(s). The limited warranty will not apply if the user(s) decides to use the mattress for a purpose other than that described herein or for a purpose not intended by Sleep6, LLC. The mattress is specifically designed for sleep and should be used accordingly.
           </p>
         </section>
 
@@ -55,10 +55,10 @@ export default function WarrantyPage() {
               Any and all issues(s) related to the comfort preference of the mattress.
             </li>
             <li className="text-gray-700 leading-relaxed">
-              Any mattress sold by someone other than Sleep6, LLC.
+              Any mattress sold by someone other than Sleep6, LLC or an authorized Sleep6 retailer.
             </li>
             <li className="text-gray-700 leading-relaxed">
-              Mattresses that are not purchased new directly from Sleep6, LLC. This includes but is not limited to used mattresses, mattresses resold by an unauthorized individual(s) or company, or mattresses sold by any reseller(s).
+              Mattresses that are not purchased new from Sleep6, LLC or an authorized Sleep6 retailer. This includes but is not limited to used mattresses and mattresses resold by an unauthorized individual(s) or company.
             </li>
             <li className="text-gray-700 leading-relaxed">
               A normal or standard increase in softness of the foam designed for pressure relief which does not affect the pressure-relieving qualities of the Sleep6 Mattress.

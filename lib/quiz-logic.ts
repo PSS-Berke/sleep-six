@@ -329,14 +329,14 @@ function getResultMessaging(
       headline: 'Relief and Recovery While You Sleep',
       reason:
         scores.mystic > 12
-          ? "Your body deserves extra care. The Mystic's advanced motion-isolating memory foam was designed for sleepers like you—contouring to pressure points and helping you wake up refreshed and pain-free."
-          : "The Mystic is your match. Its pressure-relieving memory foam and motion isolation technology will help you get the restorative sleep your body needs.",
+          ? "Your body deserves extra care. The Mystic 3.0's motion-isolating Theragel and HD foam was designed for sleepers like you—contouring to pressure points and helping you wake up refreshed and pain-free."
+          : "The Mystic 3.0 is your match. Its pressure-relieving Theragel layer and motion isolation technology will help you get the restorative sleep your body needs.",
     },
     'fak-cosmos': {
       headline: 'Cool, Comfortable Sleep Awaits',
       reason:
         scores['fak-cosmos'] > 12
-          ? "Temperature regulation is clearly key to your best sleep. The FAK Cosmos combines gel-infused foam with natural latex to actively dissipate heat—you'll notice the difference from night one."
+          ? "Temperature regulation is clearly key to your best sleep. The FAK Cosmos layers Hybrid Theragel over swirl gel memory foam to help dissipate heat—you'll notice the difference from night one."
           : "The FAK Cosmos is perfect for you. With gel cooling technology and premium materials, it delivers the temperature-regulated, luxurious sleep experience you're looking for.",
     },
   };
@@ -355,15 +355,15 @@ export const productDetails: Record<
     features: ['3-layer construction', 'CertiPUR-US certified', 'Made in the USA'],
   },
   mystic: {
-    name: 'Mystic',
-    price: 848,
+    name: 'Mystic 3.0',
+    price: 998,
     tagline: 'Balances affordability and comfort',
     features: ['Motion-isolating core', 'Pressure relief', 'Made in the USA'],
   },
   'fak-cosmos': {
     name: 'FAK Cosmos',
-    price: 1348,
+    price: 1398,
     tagline: 'Maximum comfort with premium materials',
-    features: ['Gel-infused cooling', 'Natural latex layer', 'Temperature regulation'],
+    features: ['Hybrid Theragel layer', 'Swirl gel memory foam', 'Temperature control'],
   },
 };

@@ -63,7 +63,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       ...p,
       keyBenefit:
         p.slug === 'cosmos-hybrid'
-          ? 'Zero Motion Transfer'
+          ? 'Dual Motion Isolation'
           : p.slug === 'fak-cosmos'
             ? 'Temperature Regulation'
             : p.slug === 'mystic'

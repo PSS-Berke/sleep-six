@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Star, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { homeLineProducts } from '@/data/products';
 
 export const metadata = {
@@ -143,31 +143,6 @@ export default function ComparePage() {
                             {tag}
                           </span>
                         ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Rating Row */}
-                <div className="bg-white/80 rounded-3xl p-6 border-2 border-gold/10 shadow-sm">
-                  <h4 className="text-sm text-gold-dark font-medium tracking-[0.15em] uppercase mb-6 text-center">
-                    Customer Rating
-                  </h4>
-                  <div className="grid grid-cols-4 gap-4">
-                    {sortedProducts.map((product) => (
-                      <div key={product.id} className="text-center">
-                        <div className="flex justify-center gap-1 mb-2">
-                          {[1, 2, 3, 4, 5].map((i) => (
-                            <Star
-                              key={i}
-                              className={`w-4 h-4 ${i <= Math.floor(product.rating) ? 'text-gold fill-gold' : 'text-gray-200'}`}
-                            />
-                          ))}
-                        </div>
-                        <span className="text-navy font-medium">{product.rating}</span>
-                        <span className="text-gray-500 text-sm block">
-                          {product.reviewCount.toLocaleString()} reviews
-                        </span>
                       </div>
                     ))}
                   </div>

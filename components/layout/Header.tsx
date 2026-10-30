@@ -11,7 +11,7 @@ const navigation = {
     label: 'Mattresses',
     items: [
       { name: 'Sleep6', href: '/home-line' },
-      { name: 'Abt Exclusive', href: '/abt-exclusive' },
+      { name: 'Available at Abt', href: '/abt-exclusive' },
       { name: 'Shop by Feel', href: '/shop-by-feel' },
       { name: 'Compare Mattresses', href: '/compare' },
     ],
