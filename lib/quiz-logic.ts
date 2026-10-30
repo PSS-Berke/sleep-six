@@ -356,13 +356,13 @@ export const productDetails: Record<
   },
   mystic: {
     name: 'Mystic',
-    price: 848,
+    price: 998,
     tagline: 'Balances affordability and comfort',
     features: ['Motion-isolating core', 'Pressure relief', 'Made in the USA'],
   },
   'fak-cosmos': {
     name: 'FAK Cosmos',
-    price: 1348,
+    price: 1398,
     tagline: 'Maximum comfort with premium materials',
     features: ['Gel-infused cooling', 'Natural latex layer', 'Temperature regulation'],
   },
