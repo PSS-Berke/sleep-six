@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Phone, Mail, Facebook, Twitter, Instagram } from 'lucide-react';
 
 const shopLinks = [
-  { name: 'ABT Exclusive', href: '/abt-exclusive' },
+  { name: 'Available at Abt', href: '/abt-exclusive' },
   { name: 'Sleep6 Home Line', href: '/home-line' },
   { name: 'Shop by Feel', href: '/shop-by-feel' },
   { name: 'Compare Mattresses', href: '/compare' },

@@ -324,20 +324,20 @@ export default function HomeLinePage() {
         </div>
       </section>
 
-      {/* abt Exclusive Callout */}
+      {/* Abt Collection Callout */}
       <section className="py-16 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white/60 rounded-3xl px-8 py-10 border border-gold/20">
             <div>
               <p className="text-xs text-gold-dark font-medium uppercase tracking-wider mb-2">Also available</p>
-              <h3 className="text-2xl font-serif text-navy mb-1">Looking for our abt Exclusive line?</h3>
-              <p className="text-gray-500 text-sm">Our full in-store collection, available exclusively through abt.</p>
+              <h3 className="text-2xl font-serif text-navy mb-1">Looking for our in-store line?</h3>
+              <p className="text-gray-500 text-sm">Our full in-store collection, available locally at Abt.</p>
             </div>
             <Link
               href="/abt-exclusive"
               className="shrink-0 inline-flex items-center gap-3 bg-navy hover:bg-navy-light text-white font-medium px-7 py-3.5 rounded-full transition-all duration-300 group"
             >
-              Shop abt Exclusive
+              Shop the Abt Collection
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>

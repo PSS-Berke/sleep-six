@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Info, ArrowRight } from 'lucide-react';
+import { Info, ArrowRight, Zap } from 'lucide-react';
 import type { Product, Size } from '@/data/products';
 import { useCart } from '@/contexts/CartContext';
 
@@ -43,9 +43,14 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
       {/* Title Section - Editorial */}
       <div>
-        <span className="inline-block text-gold-dark font-medium text-sm mb-3">
-          {product.brand === 'abt' ? 'abt Exclusive' : 'Online Exclusive'}
-        </span>
+        {product.brand === 'abt' ? (
+          <span className="inline-flex items-center gap-1.5 text-gold-dark font-medium text-sm mb-3">
+            <Zap className="w-4 h-4 fill-current" />
+            Available Locally at Abt
+          </span>
+        ) : (
+          <span className="inline-block text-gold-dark font-medium text-sm mb-3">Online Exclusive</span>
+        )}
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-navy mb-3">
           The <span className="font-semibold">{product.name}</span>
         </h1>

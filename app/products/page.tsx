@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Zap } from 'lucide-react';
 import { products } from '@/data/products';
 
 export const metadata = {
-  title: 'abt Exclusive Mattresses | Sleep6',
+  title: 'Available Locally at Abt | Sleep6',
   description:
-    'Sleep6 mattresses available exclusively through abt. American-made comfort — from essential foam to luxury hybrid.',
+    'Sleep6 mattresses available locally at Abt. American-made comfort — from essential foam to luxury hybrid.',
 };
 
-// abt Exclusive products only
+// Abt products only
 const abtProducts = products.filter((p) => p.brand === 'abt');
 
 // Add key benefits to products
@@ -49,14 +49,15 @@ export default function ProductsPage() {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-navy/5 blob-shape-alt blur-3xl translate-y-1/3 -translate-x-1/4" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <span className="inline-block text-gold-dark font-medium text-sm mb-4">
-            abt Exclusive
+          <span className="inline-flex items-center gap-1.5 text-gold-dark font-medium text-sm mb-4">
+            <Zap className="w-4 h-4 fill-current" />
+            Available Locally at Abt
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-navy mb-6">
-            abt <span className="wavy-underline">Exclusive</span> Collection
+            The Abt <span className="wavy-underline">Collection</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Handcrafted in America. Available exclusively through our abt partnership.
+            Handcrafted in America. Available locally at Abt.
           </p>
 
           {/* Trust badges */}
