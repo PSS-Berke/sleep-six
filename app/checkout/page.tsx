@@ -35,10 +35,9 @@ export default function CheckoutPage() {
 
     try {
       const items = state.items.map((item) => ({
-        name: `${item.productName} - ${item.size}`,
-        price: item.price,
+        slug: item.productSlug,
+        size: item.size,
         quantity: item.quantity,
-        image: item.image,
       }));
 
       const res = await fetch('/api/checkout', {
