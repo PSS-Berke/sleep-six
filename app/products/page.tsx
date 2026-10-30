@@ -17,14 +17,14 @@ const productsWithBenefits = abtProducts.map((p) => ({
   ...p,
   keyBenefit:
     p.slug === 'cosmos-hybrid'
-      ? 'Zero Motion Transfer'
+      ? 'Dual Motion Isolation'
       : p.slug === 'fak-cosmos'
         ? 'Temperature Regulation'
         : p.slug === 'mystic'
           ? 'Motion Isolation'
           : 'Essential Comfort',
   layers:
-    p.slug === 'cosmos-hybrid' ? 7 : p.slug === 'fak-cosmos' ? 4 : p.slug === 'mystic' ? 3 : 3,
+    p.slug === 'cosmos-hybrid' ? 7 : p.slug === 'fak-cosmos' ? 6 : p.slug === 'mystic' ? 5 : 3,
 }));
 
 const flagship = productsWithBenefits.find((p) => p.slug === 'cosmos-hybrid')!;
