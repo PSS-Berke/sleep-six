@@ -286,7 +286,7 @@ export const products: Product[] = [
     price: 3199,
     originalPrice: 3199,
     images: [
-      '/images/products/Insatiable/ChatGPT Image Feb 19, 2026, 11_05_05 PM.png',
+      '/images/products/Insatiable/insatiable-1.png',
       '/images/products/Insatiable/Insatiable_4 (1).jpg',
     ],
     sizes: [
