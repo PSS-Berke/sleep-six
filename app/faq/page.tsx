@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "Can I return the mattress?",
     answer:
-      "Yes! Returns are free on all Sleep6 mattresses.",
+      "Yes! Returns are free on Sleep6 mattresses bought online. Mattresses bought at Abt include a one-time 90-day comfort exchange through Abt — see Abt's return policy for details.",
   },
   {
     question: "Do I need to flip my mattress?",

@@ -50,6 +50,17 @@ export default function ProductInfo({ product }: ProductInfoProps) {
           The <span className="font-semibold">{product.name}</span>
         </h1>
         <p className="text-lg text-gray-500">{product.tagline}</p>
+        {product.abtUrl && (
+          <a
+            href={product.abtUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 mt-3 text-sm text-gold-dark hover:text-navy transition-colors"
+          >
+            Read reviews on Abt.com
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        )}
       </div>
 
       {/* Price - Simplified */}
@@ -128,7 +139,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         </span>
         <span className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-          Free Returns
+          {product.brand === 'abt' ? '90-Day Comfort Exchange' : 'Free Returns'}
         </span>
         <span className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 bg-gold rounded-full" />

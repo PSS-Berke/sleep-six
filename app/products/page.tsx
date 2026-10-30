@@ -71,7 +71,7 @@ export default function ProductsPage() {
             </span>
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-              Free Returns
+              90-Day Comfort Exchange
             </span>
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-gold rounded-full" />

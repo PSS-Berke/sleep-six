@@ -47,8 +47,7 @@ export interface Product {
   description: string;
   price: number;
   originalPrice: number;
-  rating: number;
-  reviewCount: number;
+  abtUrl?: string;
   images: string[];
   sizes: Size[];
   firmness: FirmnessOption[];
@@ -70,8 +69,6 @@ export const products: Product[] = [
     description: 'The Luna delivers essential comfort at an accessible price point. With 3 carefully designed layers and a foam support core, this mattress provides the foundation for quality sleep without unnecessary complexity.',
     price: 898,
     originalPrice: 1296,
-    rating: 4.8,
-    reviewCount: 1200,
     images: [
       '/images/products/luna-1.png',
       '/images/products/luna/luna-2.png',
@@ -120,8 +117,7 @@ export const products: Product[] = [
     description: 'The Mystic 3.0 is a 10" medium-firm foam mattress. A 2" S6 Theragel Max layer and Cool SleepGel 6 deliver pressure relief and temperature control, while an Airflow S6 HD foam layer and a 6" S6 HD support core provide dual motion isolation — all under a soft, washable zip-off cover.',
     price: 1598,
     originalPrice: 1598,
-    rating: 4.8,
-    reviewCount: 1500,
+    abtUrl: 'https://www.abt.com/Sleep6-Mystic-3.0-Mattress-Medium-Firm-Queen-5SLP6MYSTIC3/p/231663.html',
     images: [
       '/images/products/mystic-1.png',
 '/images/products/mystic/mystic-3.png',
@@ -174,8 +170,7 @@ export const products: Product[] = [
     description: 'The FAK Cosmos is a 12" luxury-firm all-foam mattress made with purpose: for every ten sold, Sleep6 donates one through the For Autistic Kids Foundation. A 1" Hybrid Theragel layer and 4 lb swirl gel memory foam provide pressure relief and temperature control, 2" of Firm Serene foam adds support, and the 7" Adaptive S6 HD Core focuses on dual motion isolation.',
     price: 2198,
     originalPrice: 2198,
-    rating: 4.9,
-    reviewCount: 1800,
+    abtUrl: 'https://www.abt.com/Sleep6-Mattress-FAK-Cosmos-Luxury-Firm-Queen-5SLP6COSMOS2ND/p/197257.html',
     images: [
       '/images/products/fak-cosmos-1.png',
       '/images/products/fak-cosmos/fak-cosmos-2.png',
@@ -231,8 +226,7 @@ export const products: Product[] = [
     description: 'The Cosmos Hybrid is our flagship 14" luxury-firm hybrid with 7 layers. An 8" encased coil unit supports natural latex, 4 lb swirl gel memory foam and a 1" Hybrid Theragel layer for pressure relief, temperature control and dual motion isolation.',
     price: 2298,
     originalPrice: 2298,
-    rating: 4.9,
-    reviewCount: 2200,
+    abtUrl: 'https://www.abt.com/Sleep6-Mattress-Cosmos-Hybrid-Luxury-Firm-Queen-5SLP6HYBRIDCOSMOS2ND/p/197259.html',
     images: [
       '/images/products/cosmos-hybrid/CosmosHybrid-8.jpg',
       '/images/products/cosmos-hybrid/COSMOS_1.jpg',
@@ -291,8 +285,6 @@ export const products: Product[] = [
     description: 'The Insatiable is for those who refuse to compromise. Our most advanced construction — combining premium natural materials, a cooling gel system, and a precision pocketed coil core — delivers a sleep experience so complete, nothing else will do.',
     price: 3199,
     originalPrice: 3199,
-    rating: 4.9,
-    reviewCount: 0,
     images: [
       '/images/products/Insatiable/ChatGPT Image Feb 19, 2026, 11_05_05 PM.png',
       '/images/products/Insatiable/Insatiable_4 (1).jpg',
@@ -351,8 +343,6 @@ export const homeLineProducts: Product[] = [
     description: 'The Sleep6 Nod is a 13½" plush hybrid mattress built for sleepers who want the conforming feel of foam with the responsive support of individually wrapped coils. Five precision-layered components work together — from the CoolGel-infused quilt fill to the Quantum® reinforced perimeter coils — to deliver consistent, roll-off-free comfort from edge to edge.',
     price: 549,
     originalPrice: 1098,
-    rating: 4.7,
-    reviewCount: 0,
     images: [
       '/images/products/Nod/nod.svg',
       '/images/products/Nod/nod-room.png',
@@ -402,8 +392,6 @@ export const homeLineProducts: Product[] = [
     description: 'The Sleep6 Doze is a 13½" XPlush hybrid mattress engineered for sleepers who want deep, enveloping comfort without sacrificing support. A 2" Serene™ foam comfort layer — double the depth of the Nod — works alongside CoolGel quilting and individually wrapped coils to deliver responsive pressure relief from the very first night.',
     price: 749,
     originalPrice: 1498,
-    rating: 4.8,
-    reviewCount: 0,
     images: [
       '/images/products/Doze/doze.svg',
       '/images/products/Doze/doze-room.png',
@@ -455,8 +443,6 @@ export const homeLineProducts: Product[] = [
     description: 'The Sleep6 Slumber is a 15½" plush hybrid mattress built for sleepers who demand the most from every layer. Six precision-engineered components — including 1" of 100% natural latex and 2" of Serene™ plush foam — work together with an individually wrapped coil system to deliver deep, responsive comfort from edge to edge.',
     price: 999,
     originalPrice: 1998,
-    rating: 4.8,
-    reviewCount: 0,
     images: [
       '/images/products/Slumber/slumber.svg',
       '/images/products/Slumber/slumber-room.png',
@@ -510,8 +496,6 @@ export const homeLineProducts: Product[] = [
     description: 'The Sleep6 Dream is a 15½" XPlush pillowtop hybrid mattress — the most refined mattress in the Sleep6 Home line. Seven precision-engineered layers, including Joma® Wool-infused CoolGel quilting, 1" of natural latex, 2" of Serene™ plush foam, and a Tri-Zone encased coil system, deliver uncompromising plush comfort from surface to foundation.',
     price: 1299,
     originalPrice: 2598,
-    rating: 4.9,
-    reviewCount: 0,
     images: [
       '/images/products/Dream/dream.svg',
       '/images/products/Dream/dream-room.png',
@@ -567,8 +551,6 @@ export const homeLineProducts: Product[] = [
     description: 'The Nest is designed from the ground up for your baby\'s safety and comfort. A firm, flat sleep surface meets infant safety standards while breathable materials keep little ones cool and comfortable through every nap and night.',
     price: 179,
     originalPrice: 358,
-    rating: 4.9,
-    reviewCount: 0,
     images: [
       '/images/products/Nest/MyGreenMattress_Crib_February2024-1 (1).jpg',
       '/images/products/Nest/MyGreenMattress_Crib_February2024-5 (1).jpg',
