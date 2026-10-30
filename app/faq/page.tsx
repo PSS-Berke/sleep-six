@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "Can I return the mattress?",
     answer:
-      "Yes! All Sleep6 mattresses carry a full 100-night trial with risk-free returns.",
+      "Yes! Returns are free on all Sleep6 mattresses.",
   },
   {
     question: "Do I need to flip my mattress?",

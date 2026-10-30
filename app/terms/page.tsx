@@ -102,7 +102,7 @@ export default function TermsPage() {
             SECTION 5 – PRODUCTS OR SERVICES (if applicable)
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our 100 day trial Return Policy.
+            Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our Return Policy.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
             We have made every effort to display as accurately as possible the colors and images of our products that appear online. We cannot guarantee that your computer monitor&apos;s display of any color will be accurate.

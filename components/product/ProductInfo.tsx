@@ -132,10 +132,6 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         </span>
         <span className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-          100 Night Guarantee
-        </span>
-        <span className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 bg-gold rounded-full" />
           10 Year Warranty
         </span>
       </div>
